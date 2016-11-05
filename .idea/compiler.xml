@@ -27,8 +27,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="app-persistence" target="1.5" />
-      <module name="app-rest" target="1.5" />
+      <module name="app-persistence" target="1.8" />
+      <module name="app-rest" target="1.8" />
       <module name="DevCourses" target="1.5" />
     </bytecodeTargetLevel>
   </component>
