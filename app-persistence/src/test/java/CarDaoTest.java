@@ -10,6 +10,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.NoResultException;
+import java.util.List;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = PersistenceConfiguration.class)
 @Transactional
@@ -47,5 +50,26 @@ public class CarDaoTest {
         car.setProductionYear(2010);
         carDao.addCar(car);
         Assert.assertNotNull(carDao.getCar("starwagon"));
+    }
+
+    @Test
+    public void testUpdateCar() {
+        Car car = carDao.getCar("Lancer");
+        car.setModel("Lancer!!!");
+        carDao.updateCar(car);
+        Assert.assertNotNull(carDao.getCar("Lancer!!!"));
+    }
+
+    @Test(expected = NoResultException.class)
+    public void testDeleteCountry() {
+        Car car = carDao.getCar("Lancer");
+        carDao.deleteCar(car);
+        carDao.getCar("Lancer");
+    }
+
+    @Test
+    public void testGetAllCars() {
+        List<Car> allEntities = carDao.getAllEntities(Car.class);
+        Assert.assertTrue(allEntities.size() > 0);
     }
 }
