@@ -31,8 +31,21 @@ public class CarDaoTest {
     }
 
     @Test
-    public void getCarBy() {
+    public void testGetCar() {
         Car car = carDao.getCar("Lancer");
         Assert.assertNotNull(car);
+    }
+
+    @Test
+    public void testAddCar() {
+        Car car = new Car();
+        car.setModel("Starwagon");
+        car.setManufacturer("Mitsubishi");
+        car.setBodyStyle("star");
+        car.setAmountLeft(32);
+        car.setPrice(10000);
+        car.setProductionYear(2010);
+        carDao.addCar(car);
+        Assert.assertNotNull(carDao.getCar("starwagon"));
     }
 }

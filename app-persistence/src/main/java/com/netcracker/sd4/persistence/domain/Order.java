@@ -13,6 +13,7 @@ public class Order {
     private User userByFkUser;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;

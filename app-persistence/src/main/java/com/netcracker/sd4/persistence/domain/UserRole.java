@@ -10,6 +10,7 @@ public class UserRole {
     private Role roleByFkRole;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;
@@ -26,9 +27,8 @@ public class UserRole {
 
         UserRole userRole = (UserRole) o;
 
-        if (id != userRole.id) return false;
+        return id == userRole.id;
 
-        return true;
     }
 
     @Override

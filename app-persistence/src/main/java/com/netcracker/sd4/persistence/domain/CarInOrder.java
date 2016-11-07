@@ -11,6 +11,7 @@ public class CarInOrder {
     private Order orderByFkOrder;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;

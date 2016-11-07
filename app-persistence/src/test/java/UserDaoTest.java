@@ -29,7 +29,7 @@ public class UserDaoTest {
     }
 
     @Test
-    public void getUser() {
+    public void testGetUser() {
         User user = userDao.getUser("Alex", "Chuduk");
         Assert.assertNotNull(user);
     }
