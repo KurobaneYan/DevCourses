@@ -13,6 +13,10 @@
     <packaging>war</packaging>
     <name>app-rest</name>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <dependencies>
         <!-- Spring -->
         <dependency>

@@ -11,6 +11,10 @@
 
     <artifactId>app-persistence</artifactId>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -48,6 +52,7 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+                <version>3.6.0</version>
             </plugin>
         </plugins>
     </build>
