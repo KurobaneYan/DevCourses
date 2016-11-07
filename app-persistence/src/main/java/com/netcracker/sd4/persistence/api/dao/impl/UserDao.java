@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.util.List;
 
 @Repository
 public class UserDao extends AbstractDao implements UserDaoIntefrace{
@@ -36,5 +37,14 @@ public class UserDao extends AbstractDao implements UserDaoIntefrace{
     @Override
     public void deleteUser(User user) {
         entityManager.remove(user);
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<User> criteriaQuery = criteriaBuilder.createQuery(User.class);
+        Root<User> from = criteriaQuery.from(User.class);
+        criteriaQuery.select(from);
+        return entityManager.createQuery(criteriaQuery).getResultList();
     }
 }

@@ -10,6 +10,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.NoResultException;
+import java.util.List;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = PersistenceConfiguration.class)
 @Transactional
@@ -32,5 +35,37 @@ public class UserDaoTest {
     public void testGetUser() {
         User user = userDao.getUser("Alex", "Chuduk");
         Assert.assertNotNull(user);
+    }
+
+    @Test
+    public void testAddUser() {
+        User user = new User();
+        user.setName("Yan");
+        user.setSurname("Kurobane");
+        user.setEmail("yan@gmail.com");
+        user.setPhoneNumber("12304424");
+        userDao.addUser(user);
+        Assert.assertNotNull(userDao.getUser("Yan", "Kurobane"));
+    }
+
+    @Test
+    public void testUpdateUser() {
+        User user = userDao.getUser("Alex", "Chuduk");
+        user.setName("Yan");
+        userDao.updateUser(user);
+        Assert.assertNotNull(userDao.getUser("Yan", "Chuduk"));
+    }
+
+    @Test(expected = NoResultException.class)
+    public void testDeleteCountry() {
+        User user = userDao.getUser("Alex", "Chuduk");
+        userDao.deleteUser(user);
+        userDao.getUser("Alex", "Chuduk");
+    }
+
+    @Test
+    public void testGetAllCars() {
+        List<User> allEntities = userDao.getAllEntities(User.class);
+        Assert.assertTrue(allEntities.size() > 0);
     }
 }
