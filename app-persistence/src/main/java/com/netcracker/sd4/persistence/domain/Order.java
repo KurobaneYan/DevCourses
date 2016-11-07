@@ -2,13 +2,14 @@ package com.netcracker.sd4.persistence.domain;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Set;
 
 @Entity
 public class Order {
     private int id;
     private int cast;
     private int date;
-    private Collection<CarInOrder> carInOrdersById;
+    private Set<CarInOrder> carInOrdersById;
     private User userByFkUser;
 
     @Id
@@ -64,11 +65,11 @@ public class Order {
     }
 
     @OneToMany(mappedBy = "orderByFkOrder")
-    public Collection<CarInOrder> getCarInOrdersById() {
+    public Set<CarInOrder> getCarInOrdersById() {
         return carInOrdersById;
     }
 
-    public void setCarInOrdersById(Collection<CarInOrder> carInOrdersById) {
+    public void setCarInOrdersById(Set<CarInOrder> carInOrdersById) {
         this.carInOrdersById = carInOrdersById;
     }
 

@@ -2,6 +2,7 @@ package com.netcracker.sd4.persistence.domain;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Set;
 
 @Entity
 public class User {
@@ -10,8 +11,8 @@ public class User {
     private String surname;
     private String email;
     private String phoneNumber;
-    private Collection<Order> ordersById;
-    private Collection<Role> roles;
+    private Set<Order> ordersById;
+    private Set<Role> roles;
 
     @Id
     @Column(name = "id")
@@ -90,21 +91,21 @@ public class User {
     }
 
     @OneToMany(mappedBy = "userByFkUser")
-    public Collection<Order> getOrdersById() {
+    public Set<Order> getOrdersById() {
         return ordersById;
     }
 
-    public void setOrdersById(Collection<Order> ordersById) {
+    public void setOrdersById(Set<Order> ordersById) {
         this.ordersById = ordersById;
     }
 
     @ManyToMany(cascade=CascadeType.ALL)
     @JoinTable(name="user_role", joinColumns=@JoinColumn(name="fk_user"), inverseJoinColumns=@JoinColumn(name="fk_role"))
-    public Collection<Role> getRoles() {
+    public Set<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Collection<Role> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 }

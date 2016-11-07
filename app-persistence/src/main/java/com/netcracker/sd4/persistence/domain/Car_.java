@@ -2,6 +2,7 @@ package com.netcracker.sd4.persistence.domain;
 
 import javax.annotation.Generated;
 import javax.persistence.metamodel.CollectionAttribute;
+import javax.persistence.metamodel.SetAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
@@ -15,5 +16,5 @@ public abstract class Car_ {
     public static volatile SingularAttribute<Car, String> model;
     public static volatile SingularAttribute<Car, String> manufacturer;
     public static volatile SingularAttribute<Car, String> bodyStyle;
-    public static volatile CollectionAttribute<Car, CarInOrder> carInOrdersById;
+    public static volatile SetAttribute<Car, CarInOrder> carInOrdersById;
 }

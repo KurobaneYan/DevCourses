@@ -4,13 +4,14 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Set;
 
 @Entity
 public class Role {
     private int id;
     private String name;
     private Boolean isAdmin;
-    private Collection<User> users;
+    private Set<User> users;
 
     @Id
     @Column(name = "id")
@@ -66,11 +67,11 @@ public class Role {
     }
 
     @ManyToMany(cascade=CascadeType.ALL, mappedBy="roles")
-    public Collection<User> getUsers() {
+    public Set<User> getUsers() {
         return users;
     }
 
-    public void setUsers(Collection<User> users) {
+    public void setUsers(Set<User> users) {
         this.users = users;
     }
 }

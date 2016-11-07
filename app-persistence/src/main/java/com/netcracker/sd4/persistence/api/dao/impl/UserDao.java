@@ -30,11 +30,11 @@ public class UserDao extends AbstractDao implements UserDaoIntefrace{
 
     @Override
     public void updateUser(User user) {
-
+        entityManager.merge(user);
     }
 
     @Override
     public void deleteUser(User user) {
-
+        entityManager.remove(user);
     }
 }

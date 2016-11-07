@@ -29,11 +29,11 @@ public class CarDao extends AbstractDao implements CarDaoInterface {
 
     @Override
     public void updateCar(Car car) {
-
+        entityManager.merge(car);
     }
 
     @Override
     public void deleteCar(Car car) {
-
+        entityManager.remove(car);
     }
 }
