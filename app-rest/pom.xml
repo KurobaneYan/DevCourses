@@ -11,21 +11,18 @@
 
     <artifactId>app-rest</artifactId>
     <packaging>war</packaging>
-    <name>app-rest</name>
+
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
-        <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
+            <version>4.3.3.RELEASE</version>
         </dependency>
-
-        <!-- Jackson -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -41,20 +38,18 @@
             <artifactId>jackson-annotations</artifactId>
             <version>2.8.4</version>
         </dependency>
-
-        <!-- Jetty -->
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
-            <version>9.2.15.v20160210</version>
+            <version>9.3.13.v20161014</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-webapp</artifactId>
-            <version>9.2.15.v20160210</version>
+            <version>9.3.13.v20161014</version>
         </dependency>
 
-        <!-- Local -->
+        <!-- error with local dependency -->
         <dependency>
             <groupId>com.netcracker.devcourses</groupId>
             <artifactId>app-persistence</artifactId>

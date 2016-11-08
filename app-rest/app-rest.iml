@@ -20,6 +20,10 @@
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/spring-config/mvc-dispatcher-servlet.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/netcracker/sd4/rest/configuratin/RestConfiguration.java</file>
+        </fileset>
+        <fileset id="web DispatcherServlet servlet context" name="MVC DispatcherServlet servlet context" removed="true">
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/spring-config/mvc-dispatcher-servlet.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -46,15 +50,15 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.8.4" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.8.4" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.4" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-server:9.2.15.v20160210" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-server:9.3.13.v20161014" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-http:9.2.15.v20160210" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-util:9.2.15.v20160210" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-io:9.2.15.v20160210" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-webapp:9.2.15.v20160210" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-xml:9.2.15.v20160210" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-servlet:9.2.15.v20160210" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-security:9.2.15.v20160210" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-http:9.3.13.v20161014" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-util:9.3.13.v20161014" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-io:9.3.13.v20161014" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-webapp:9.3.13.v20161014" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-xml:9.3.13.v20161014" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-servlet:9.3.13.v20161014" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-security:9.3.13.v20161014" level="project" />
     <orderEntry type="module" module-name="app-persistence" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:4.3.3.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:4.3.3.RELEASE" level="project" />
