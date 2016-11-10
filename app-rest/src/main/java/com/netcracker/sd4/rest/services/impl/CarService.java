@@ -43,7 +43,6 @@ public class CarService implements CarServiceInterface {
     @Override
     public List<CarDto> getAllCars() {
         List<Car> cars = carDao.getAll(Car.class);
-        System.out.println(cars);
 
         @SuppressWarnings("unchecked")
         List<CarDto> result = (List<CarDto>) conversionService.convert(cars, carDescriptor, carDtoDescriptor);
