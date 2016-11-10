@@ -1,6 +1,6 @@
 package com.netcracker.sd4.rest.services.impl;
 
-import com.netcracker.sd4.persistence.api.dao.impl.CarDao;
+import com.netcracker.sd4.persistence.dao.impl.CarDao;
 import com.netcracker.sd4.persistence.domain.Car;
 import com.netcracker.sd4.rest.dto.CarDto;
 import com.netcracker.sd4.rest.exceptions.ResourceNotFoundException;

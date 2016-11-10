@@ -1,4 +1,4 @@
-import com.netcracker.sd4.persistence.api.dao.impl.UserDao;
+import com.netcracker.sd4.persistence.dao.impl.UserDao;
 import com.netcracker.sd4.persistence.configuration.PersistenceConfiguration;
 import com.netcracker.sd4.persistence.domain.User;
 import org.junit.Assert;
@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
-import sun.dc.pr.PRError;
 
 import javax.persistence.NoResultException;
 import java.util.List;

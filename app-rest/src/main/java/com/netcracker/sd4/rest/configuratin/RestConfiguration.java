@@ -3,6 +3,7 @@ package com.netcracker.sd4.rest.configuratin;
 import com.netcracker.sd4.persistence.configuration.PersistenceConfiguration;
 import com.netcracker.sd4.rest.converters.CarDtoToCarConverter;
 import com.netcracker.sd4.rest.converters.CarToCarDtoConverter;
+import com.netcracker.sd4.rest.converters.UserToUserDtoConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -31,6 +32,7 @@ public class RestConfiguration {
         Set<Converter> converters = new HashSet<>();
         converters.add(new CarToCarDtoConverter());
         converters.add(new CarDtoToCarConverter());
+        converters.add(new UserToUserDtoConverter());
         return converters;
     }
 }

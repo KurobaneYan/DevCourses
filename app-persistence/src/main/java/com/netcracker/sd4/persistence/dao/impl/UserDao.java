@@ -1,6 +1,6 @@
-package com.netcracker.sd4.persistence.api.dao.impl;
+package com.netcracker.sd4.persistence.dao.impl;
 
-import com.netcracker.sd4.persistence.api.dao.UserDaoIntefrace;
+import com.netcracker.sd4.persistence.dao.UserDaoIntefrace;
 import com.netcracker.sd4.persistence.domain.User;
 import com.netcracker.sd4.persistence.domain.User_;
 import org.springframework.stereotype.Repository;
@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import java.util.List;
 
 @Repository
 public class UserDao extends AbstractDao implements UserDaoIntefrace{

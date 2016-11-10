@@ -1,4 +1,4 @@
-import com.netcracker.sd4.persistence.api.dao.impl.CarDao;
+import com.netcracker.sd4.persistence.dao.impl.CarDao;
 import com.netcracker.sd4.persistence.configuration.PersistenceConfiguration;
 import com.netcracker.sd4.persistence.domain.Car;
 import org.junit.Assert;

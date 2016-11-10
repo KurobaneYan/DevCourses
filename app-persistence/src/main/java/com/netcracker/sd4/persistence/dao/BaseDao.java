@@ -1,4 +1,4 @@
-package com.netcracker.sd4.persistence.api.dao;
+package com.netcracker.sd4.persistence.dao;
 
 import java.util.List;
 

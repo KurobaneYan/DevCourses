@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@ComponentScan(basePackages = {"com.netcracker.sd4.persistence.api.dao.impl"})
+@ComponentScan(basePackages = {"com.netcracker.sd4.persistence.dao.impl"})
 @PropertySource("classpath:persistence.properties")
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "com.netcracker.sd4.persistence.api.dao")

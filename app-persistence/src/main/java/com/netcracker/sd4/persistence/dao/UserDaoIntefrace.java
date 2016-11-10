@@ -1,8 +1,6 @@
-package com.netcracker.sd4.persistence.api.dao;
+package com.netcracker.sd4.persistence.dao;
 
 import com.netcracker.sd4.persistence.domain.User;
-
-import java.util.List;
 
 public interface UserDaoIntefrace extends BaseDao {
     User getUser(String name, String surname);
