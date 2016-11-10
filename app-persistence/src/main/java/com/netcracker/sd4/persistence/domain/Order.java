@@ -1,10 +1,10 @@
 package com.netcracker.sd4.persistence.domain;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Set;
 
 @Entity
+@Table(name = "`order`")
 public class Order {
     private int id;
     private int cast;

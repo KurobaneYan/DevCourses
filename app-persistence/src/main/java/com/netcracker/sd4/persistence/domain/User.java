@@ -1,7 +1,6 @@
 package com.netcracker.sd4.persistence.domain;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Set;
 
 @Entity
@@ -11,7 +10,7 @@ public class User {
     private String surname;
     private String email;
     private String phoneNumber;
-    private Set<Order> ordersById;
+    private Set<Order> orders;
     private Set<Role> roles;
 
     @Id
@@ -92,12 +91,12 @@ public class User {
     }
 
     @OneToMany(mappedBy = "userByFkUser")
-    public Set<Order> getOrdersById() {
-        return ordersById;
+    public Set<Order> getOrders() {
+        return orders;
     }
 
-    public void setOrdersById(Set<Order> ordersById) {
-        this.ordersById = ordersById;
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
     }
 
     @ManyToMany(cascade=CascadeType.ALL)
@@ -118,7 +117,7 @@ public class User {
                 ", surname='" + surname + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", ordersById=" + ordersById +
+                ", orders=" + orders +
                 ", roles=" + roles +
                 '}';
     }

@@ -1,5 +1,8 @@
 import com.netcracker.sd4.persistence.dao.impl.UserDao;
 import com.netcracker.sd4.persistence.configuration.PersistenceConfiguration;
+import com.netcracker.sd4.persistence.domain.CarInOrder;
+import com.netcracker.sd4.persistence.domain.Order;
+import com.netcracker.sd4.persistence.domain.Role;
 import com.netcracker.sd4.persistence.domain.User;
 import org.junit.Assert;
 import org.junit.Before;
@@ -12,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.NoResultException;
 import java.util.List;
+import java.util.Set;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = PersistenceConfiguration.class)
@@ -81,5 +85,15 @@ public class UserDaoTest {
     public void testGetAllCars() {
         List<User> allEntities = userDao.getAll(User.class);
         Assert.assertTrue(allEntities.size() > 0);
+    }
+
+    @Test
+    public void testGetDeepUserData() {
+        User user = userDao.getUser("Alex", "Chuduk");
+        Assert.assertNotNull(user);
+        Set<Role> roles = user.getRoles();
+        Assert.assertTrue(roles.size() > 0);
+        Set<Order> orders = user.getOrders();
+        Assert.assertTrue(orders.size() > 0);
     }
 }
