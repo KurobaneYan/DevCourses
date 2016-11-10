@@ -12,6 +12,7 @@ public class User {
     private String email;
     private String phoneNumber;
     private Set<Order> ordersById;
+
     private Set<Role> roles;
 
     @Id
@@ -108,5 +109,18 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", ordersById=" + ordersById +
+                ", roles=" + roles +
+                '}';
     }
 }

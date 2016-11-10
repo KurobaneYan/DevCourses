@@ -83,4 +83,15 @@ public class Order {
     public void setUserByFkUser(User userByFkUser) {
         this.userByFkUser = userByFkUser;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", cast=" + cast +
+                ", date=" + date +
+                ", carInOrdersById=" + carInOrdersById +
+                ", userByFkUser=" + userByFkUser +
+                '}';
+    }
 }

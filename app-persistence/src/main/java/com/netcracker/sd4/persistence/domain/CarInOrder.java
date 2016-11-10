@@ -70,4 +70,14 @@ public class CarInOrder {
     public void setOrderByFkOrder(Order orderByFkOrder) {
         this.orderByFkOrder = orderByFkOrder;
     }
+
+    @Override
+    public String toString() {
+        return "CarInOrder{" +
+                "id=" + id +
+                ", amount=" + amount +
+                ", carByFkCar=" + carByFkCar +
+                ", orderByFkOrder=" + orderByFkOrder +
+                '}';
+    }
 }
