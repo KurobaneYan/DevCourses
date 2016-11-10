@@ -12,7 +12,6 @@ public class CarDto {
     private String model;
     private String manufacturer;
     private String bodyStyle;
-    private Set<CarInOrder> carInOrdersById;
 
     public int getProductionYear() {
         return productionYear;
@@ -60,13 +59,5 @@ public class CarDto {
 
     public void setBodyStyle(String bodyStyle) {
         this.bodyStyle = bodyStyle;
-    }
-
-    public Set<CarInOrder> getCarInOrdersById() {
-        return carInOrdersById;
-    }
-
-    public void setCarInOrdersById(Set<CarInOrder> carInOrdersById) {
-        this.carInOrdersById = carInOrdersById;
     }
 }

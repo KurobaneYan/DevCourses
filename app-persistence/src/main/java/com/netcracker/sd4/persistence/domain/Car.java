@@ -124,4 +124,17 @@ public class Car {
     public void setCarInOrdersById(Set<CarInOrder> carInOrdersById) {
         this.carInOrdersById = carInOrdersById;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", productionYear=" + productionYear +
+                ", price=" + price +
+                ", amountLeft=" + amountLeft +
+                ", model='" + model + '\'' +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", bodyStyle='" + bodyStyle + '\'' +
+                '}';
+    }
 }

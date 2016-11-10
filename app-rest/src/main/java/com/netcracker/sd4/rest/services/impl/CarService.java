@@ -43,6 +43,8 @@ public class CarService implements CarServiceInterface {
     @Override
     public List<CarDto> getAllCars() {
         List<Car> cars = carDao.getAllEntities(Car.class);
+        //List<Car> cars = carDao.getAllCars();
+        System.out.println(cars);
 
         List<CarDto> result = (List<CarDto>) conversionService.convert(cars, carDescriptor, carDtoDescriptor);
         if (CollectionUtils.isEmpty(result)) {
@@ -51,5 +53,8 @@ public class CarService implements CarServiceInterface {
         return result;
     }
 
-
+    @Override
+    public void addCar(Car car) {
+        //TODO implement this method
+    }
 }

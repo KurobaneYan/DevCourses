@@ -9,12 +9,11 @@ public class CarToCarDtoConverter implements Converter<Car, CarDto> {
     public CarDto convert(Car car) {
         CarDto dto = new CarDto();
         dto.setModel(car.getModel());
-        dto.setModel(car.getManufacturer());
+        dto.setManufacturer(car.getManufacturer());
         dto.setAmountLeft(car.getAmountLeft());
         dto.setBodyStyle(car.getBodyStyle());
         dto.setPrice(car.getPrice());
         dto.setProductionYear(car.getProductionYear());
-        dto.setCarInOrdersById(car.getCarInOrdersById());
         return dto;
     }
 }

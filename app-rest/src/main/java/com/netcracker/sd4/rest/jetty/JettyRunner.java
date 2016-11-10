@@ -19,7 +19,6 @@ public class JettyRunner {
         Server server = new Server(port);
         WebAppContext webapp = new WebAppContext();
         webapp.setContextPath("/");
-        //webapp.setWar("/Users/Konstantin/IdeaProjects/NCDevCourses/app-restapi/target/app-restapi.war");
         webapp.setWar("C:\\IdeaProjects\\DevCourses\\app-rest\\target\\app-rest.war");
         server.setHandler(webapp);
         server.start();
