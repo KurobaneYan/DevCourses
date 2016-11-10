@@ -17,7 +17,7 @@ public abstract class AbstractDao implements BaseDao {
     protected EntityManager entityManager;
 
     @Override
-    public <T> List<T> getAllEntities(Class<T> clazz) {
+    public <T> List<T> getAll(Class<T> clazz) {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(clazz);
         Root<? extends T> from = criteriaQuery.from(clazz);
@@ -27,7 +27,22 @@ public abstract class AbstractDao implements BaseDao {
     }
 
     @Override
-    public <T> T getEntity(Class<T> clazz, Object id) {
+    public void add(Object o) {
+        entityManager.persist(o);
+    }
+
+    @Override
+    public void update(Object o) {
+        entityManager.merge(o);
+    }
+
+    @Override
+    public void delete(Object o) {
+        entityManager.remove(o);
+    }
+
+    @Override
+    public <T> T get(Class<T> clazz, Object id) {
         return entityManager.find(clazz, id);
     }
 }

@@ -17,6 +17,13 @@ import java.util.List;
 @ContextConfiguration(classes = PersistenceConfiguration.class)
 @Transactional
 public class CarDaoTest {
+    private final String MODEL = "model XKR";
+    private final String ANOTHER_MODEL = "super new XR";
+    private final String MANUFACTURER = "My favorite MMM";
+    private final String BODY_STYLE = "MY Style";
+    private final int PRICE = 1000000;
+    private final int YEAR = 2016;
+    private final int AMOUNT_LEFT = 100;
 
     @Autowired
     private CarDao carDao;
@@ -24,52 +31,52 @@ public class CarDaoTest {
     @Before
     public void setUp() {
         Car car = new Car();
-        car.setModel("Lancer");
-        car.setManufacturer("Mitsubishi");
-        car.setBodyStyle("cool");
-        car.setAmountLeft(3);
-        car.setPrice(70000);
-        car.setProductionYear(2016);
-        carDao.addCar(car);
+        car.setModel(MODEL);
+        car.setManufacturer(MANUFACTURER);
+        car.setBodyStyle(BODY_STYLE);
+        car.setAmountLeft(AMOUNT_LEFT);
+        car.setPrice(PRICE);
+        car.setProductionYear(YEAR);
+        carDao.add(car);
     }
 
     @Test
     public void testGetCar() {
-        Car car = carDao.getCar("Lancer");
+        Car car = carDao.getCarByModel(MODEL);
         Assert.assertNotNull(car);
     }
 
     @Test
     public void testAddCar() {
         Car car = new Car();
-        car.setModel("Starwagon");
-        car.setManufacturer("Mitsubishi");
-        car.setBodyStyle("star");
-        car.setAmountLeft(32);
-        car.setPrice(10000);
-        car.setProductionYear(2010);
-        carDao.addCar(car);
-        Assert.assertNotNull(carDao.getCar("starwagon"));
+        car.setModel(ANOTHER_MODEL);
+        car.setManufacturer(MANUFACTURER);
+        car.setBodyStyle(BODY_STYLE);
+        car.setAmountLeft(AMOUNT_LEFT);
+        car.setPrice(PRICE);
+        car.setProductionYear(YEAR);
+        carDao.add(car);
+        Assert.assertNotNull(carDao.getCarByModel(ANOTHER_MODEL));
     }
 
     @Test
     public void testUpdateCar() {
-        Car car = carDao.getCar("Lancer");
-        car.setModel("Lancer!!!");
-        carDao.updateCar(car);
-        Assert.assertNotNull(carDao.getCar("Lancer!!!"));
+        Car car = carDao.getCarByModel(MODEL);
+        car.setModel(MODEL + "2");
+        carDao.update(car);
+        Assert.assertNotNull(carDao.getCarByModel(MODEL + "2"));
     }
 
     @Test(expected = NoResultException.class)
     public void testDeleteCountry() {
-        Car car = carDao.getCar("Lancer");
-        carDao.deleteCar(car);
-        carDao.getCar("Lancer");
+        Car car = carDao.getCarByModel(MODEL);
+        carDao.delete(car);
+        carDao.getCarByModel(MODEL);
     }
 
     @Test
     public void testGetAllCars() {
-        List<Car> allEntities = carDao.getAllEntities(Car.class);
+        List<Car> allEntities = carDao.getAll(Car.class);
         Assert.assertTrue(allEntities.size() > 0);
     }
 }

@@ -6,8 +6,4 @@ import java.util.List;
 
 public interface UserDaoIntefrace extends BaseDao {
     User getUser(String name, String surname);
-    void addUser(User user);
-    void updateUser(User user);
-    void deleteUser(User user);
-    List<User> getAllUsers();
 }

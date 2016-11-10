@@ -23,28 +23,4 @@ public class UserDao extends AbstractDao implements UserDaoIntefrace{
         criteriaQuery.select(from);
         return entityManager.createQuery(criteriaQuery).getSingleResult();
     }
-
-    @Override
-    public void addUser(User user) {
-        entityManager.persist(user);
-    }
-
-    @Override
-    public void updateUser(User user) {
-        entityManager.merge(user);
-    }
-
-    @Override
-    public void deleteUser(User user) {
-        entityManager.remove(user);
-    }
-
-    @Override
-    public List<User> getAllUsers() {
-        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<User> criteriaQuery = criteriaBuilder.createQuery(User.class);
-        Root<User> from = criteriaQuery.from(User.class);
-        criteriaQuery.select(from);
-        return entityManager.createQuery(criteriaQuery).getResultList();
-    }
 }

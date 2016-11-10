@@ -42,7 +42,7 @@ public class CarService implements CarServiceInterface {
 
     @Override
     public List<CarDto> getAllCars() {
-        List<Car> cars = carDao.getAllEntities(Car.class);
+        List<Car> cars = carDao.getAll(Car.class);
         //List<Car> cars = carDao.getAllCars();
         System.out.println(cars);
 
