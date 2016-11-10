@@ -17,10 +17,10 @@ public class JettyRunner {
     private void startJetty(int port) throws Exception {
         LOGGER.debug("Starting server at port {}", port);
         Server server = new Server(port);
-        WebAppContext webapp = new WebAppContext();
-        webapp.setContextPath("/");
-        webapp.setWar("C:\\IdeaProjects\\DevCourses\\app-rest\\target\\app-rest.war");
-        server.setHandler(webapp);
+        WebAppContext webApp = new WebAppContext();
+        webApp.setContextPath("/");
+        webApp.setWar("C:\\IdeaProjects\\DevCourses\\app-rest\\target\\app-rest.war");
+        server.setHandler(webApp);
         server.start();
         LOGGER.debug("Server started at port {}", port);
         server.join();

@@ -56,7 +56,6 @@ public class CarService implements CarServiceInterface {
     @Override
     public CarDto addCar(CarDto carDto) {
         Car car = conversionService.convert(carDto, Car.class);
-        //Car car = (Car)conversionService.convert(carDto, carDtoDescriptor, carDescriptor);
         carDao.add(car);
         return carDto;
     }

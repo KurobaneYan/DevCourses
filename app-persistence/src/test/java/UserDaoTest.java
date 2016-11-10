@@ -47,6 +47,12 @@ public class UserDaoTest {
     }
 
     @Test
+    public void testGetUserByEmail() {
+        User user = userDao.getUserByEmail(USER_EMAIL);
+        Assert.assertNotNull(user);
+    }
+
+    @Test
     public void testAddUser() {
         User user = new User();
         user.setName(ANOTHER_USER_NAME);

@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface UserDaoIntefrace extends BaseDao {
     User getUser(String name, String surname);
+    User getUserByEmail(String email);
 }

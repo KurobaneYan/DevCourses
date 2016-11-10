@@ -23,4 +23,14 @@ public class UserDao extends AbstractDao implements UserDaoIntefrace{
         criteriaQuery.select(from);
         return entityManager.createQuery(criteriaQuery).getSingleResult();
     }
+
+    @Override
+    public User getUserByEmail(String email) {
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<User> criteriaQuery = criteriaBuilder.createQuery(User.class);
+        Root<User> from = criteriaQuery.from(User.class);
+        criteriaQuery.where(criteriaBuilder.equal(from.get(User_.email), email));
+        criteriaQuery.select(from);
+        return entityManager.createQuery(criteriaQuery).getSingleResult();
+    }
 }
