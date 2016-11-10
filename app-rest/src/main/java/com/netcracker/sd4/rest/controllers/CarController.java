@@ -33,12 +33,12 @@ public class CarController {
     }
 
     @RequestMapping(value = "/{model}", method = RequestMethod.PUT)
-    public CarDto updateCountry(@PathVariable String model, @RequestBody CarDto carDto) {
+    public CarDto updateCar(@PathVariable String model, @RequestBody CarDto carDto) {
         return carService.updateCar(model, carDto);
     }
 
     @RequestMapping(value = "/{carModel}", method = RequestMethod.DELETE)
-    public void deleteCountry(@PathVariable String carModel) {
+    public void deleteCar(@PathVariable String carModel) {
         carService.deleteCar(carModel);
     }
 }
