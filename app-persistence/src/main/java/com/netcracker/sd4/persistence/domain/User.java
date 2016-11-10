@@ -12,7 +12,6 @@ public class User {
     private String email;
     private String phoneNumber;
     private Set<Order> ordersById;
-
     private Set<Role> roles;
 
     @Id

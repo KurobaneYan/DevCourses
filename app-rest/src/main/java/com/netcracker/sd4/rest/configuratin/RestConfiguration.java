@@ -1,6 +1,7 @@
 package com.netcracker.sd4.rest.configuratin;
 
 import com.netcracker.sd4.persistence.configuration.PersistenceConfiguration;
+import com.netcracker.sd4.rest.converters.CarDtoToCarConverter;
 import com.netcracker.sd4.rest.converters.CarToCarDtoConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,10 +29,8 @@ public class RestConfiguration {
 
     private Set<Converter> getConverters() {
         Set<Converter> converters = new HashSet<>();
-//        converters.add(new CountryToCountryDTOConverter());
-//        converters.add(new CountryDTOToCountryConverter());
-//        converters.add(new FlightToFlightDTOConverter());
         converters.add(new CarToCarDtoConverter());
+        converters.add(new CarDtoToCarConverter());
         return converters;
     }
 }

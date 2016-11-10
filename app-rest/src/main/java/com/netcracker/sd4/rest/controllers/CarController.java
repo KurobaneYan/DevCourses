@@ -4,10 +4,9 @@ import com.netcracker.sd4.rest.dto.CarDto;
 import com.netcracker.sd4.rest.services.CarServiceInterface;
 import com.netcracker.sd4.rest.services.impl.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +24,11 @@ public class CarController {
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<CarDto> getCountries() {
         return carService.getAllCars();
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public CarDto createCountry(@RequestBody CarDto carDto) {
+        return carService.addCar(carDto);
     }
 }

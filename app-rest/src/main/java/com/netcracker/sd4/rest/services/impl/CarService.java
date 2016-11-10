@@ -43,9 +43,9 @@ public class CarService implements CarServiceInterface {
     @Override
     public List<CarDto> getAllCars() {
         List<Car> cars = carDao.getAll(Car.class);
-        //List<Car> cars = carDao.getAllCars();
         System.out.println(cars);
 
+        @SuppressWarnings("unchecked")
         List<CarDto> result = (List<CarDto>) conversionService.convert(cars, carDescriptor, carDtoDescriptor);
         if (CollectionUtils.isEmpty(result)) {
             throw new ResourceNotFoundException(NOT_FOUND_MESSAGE);
@@ -54,7 +54,10 @@ public class CarService implements CarServiceInterface {
     }
 
     @Override
-    public void addCar(Car car) {
-        //TODO implement this method
+    public CarDto addCar(CarDto carDto) {
+        Car car = conversionService.convert(carDto, Car.class);
+        //Car car = (Car)conversionService.convert(carDto, carDtoDescriptor, carDescriptor);
+        carDao.add(car);
+        return carDto;
     }
 }

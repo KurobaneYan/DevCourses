@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface CarServiceInterface {
     List<CarDto> getAllCars();
-    void addCar(Car car);
+    CarDto addCar(CarDto car);
 }
