@@ -59,4 +59,26 @@ public class CarService implements CarServiceInterface {
         carDao.add(car);
         return carDto;
     }
+
+    @Override
+    public void deleteCar(String model) {
+        Car car = carDao.getCarByModel(model);
+        carDao.delete(car);
+    }
+
+    @Override
+    public CarDto updateCar(String model, CarDto carDto) {
+        Car car = carDao.getCarByModel(model);
+        if (car == null) {
+            throw new ResourceNotFoundException(NOT_FOUND_MESSAGE);
+        }
+        car.setModel(carDto.getModel());
+        car.setManufacturer(carDto.getManufacturer());
+        car.setPrice(carDto.getPrice());
+        car.setAmountLeft(carDto.getAmountLeft());
+        car.setBodyStyle(carDto.getBodyStyle());
+        car.setProductionYear(carDto.getProductionYear());
+        carDao.update(car);
+        return carDto;
+    }
 }

@@ -22,13 +22,23 @@ public class CarController {
     }
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<CarDto> getCountries() {
+    public List<CarDto> getCars() {
         return carService.getAllCars();
     }
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(code = HttpStatus.CREATED)
-    public CarDto createCountry(@RequestBody CarDto carDto) {
+    public CarDto createCar(@RequestBody CarDto carDto) {
         return carService.addCar(carDto);
+    }
+
+    @RequestMapping(value = "/{model}", method = RequestMethod.PUT)
+    public CarDto updateCountry(@PathVariable String model, @RequestBody CarDto carDto) {
+        return carService.updateCar(model, carDto);
+    }
+
+    @RequestMapping(value = "/{carModel}", method = RequestMethod.DELETE)
+    public void deleteCountry(@PathVariable String carModel) {
+        carService.deleteCar(carModel);
     }
 }
