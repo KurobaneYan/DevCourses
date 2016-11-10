@@ -1,10 +1,5 @@
 package com.netcracker.sd4.rest.dto;
 
-import com.netcracker.sd4.persistence.domain.CarInOrder;
-
-import java.util.Set;
-
-
 public class CarDto {
     private int productionYear;
     private int price;
