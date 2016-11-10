@@ -35,11 +35,14 @@ public class RestConfiguration {
         converters.add(new UserToUserDtoConverter());
         converters.add(new UserDtoToUserConverter());
 
-        converters.add(new RoleDtoToRoleConverter());
         converters.add(new RoleToRoleDtoConverter());
+        converters.add(new RoleDtoToRoleConverter());
 
-        converters.add(new OrderDtoToOrderConverter());
         converters.add(new OrderToOrderDtoConverter());
+        converters.add(new OrderDtoToOrderConverter());
+
+        converters.add(new CarInOrderToCarInOrderDtoConverter());
+        converters.add(new CarInOrderDtoToCarInOrderConverter());
 
         return converters;
     }
