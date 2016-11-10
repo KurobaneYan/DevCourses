@@ -1,10 +1,7 @@
 package com.netcracker.sd4.rest.configuratin;
 
 import com.netcracker.sd4.persistence.configuration.PersistenceConfiguration;
-import com.netcracker.sd4.rest.converters.CarDtoToCarConverter;
-import com.netcracker.sd4.rest.converters.CarToCarDtoConverter;
-import com.netcracker.sd4.rest.converters.UserDtoToUserConverter;
-import com.netcracker.sd4.rest.converters.UserToUserDtoConverter;
+import com.netcracker.sd4.rest.converters.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -31,10 +28,16 @@ public class RestConfiguration {
 
     private Set<Converter> getConverters() {
         Set<Converter> converters = new HashSet<>();
+
         converters.add(new CarToCarDtoConverter());
         converters.add(new CarDtoToCarConverter());
+
         converters.add(new UserToUserDtoConverter());
         converters.add(new UserDtoToUserConverter());
+
+        converters.add(new RoleDtoToRoleConverter());
+        converters.add(new RoleToRoleDtoConverter());
+
         return converters;
     }
 }
