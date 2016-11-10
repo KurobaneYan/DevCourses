@@ -38,6 +38,9 @@ public class RestConfiguration {
         converters.add(new RoleDtoToRoleConverter());
         converters.add(new RoleToRoleDtoConverter());
 
+        converters.add(new OrderDtoToOrderConverter());
+        converters.add(new OrderToOrderDtoConverter());
+
         return converters;
     }
 }
