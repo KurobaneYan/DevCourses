@@ -24,11 +24,13 @@
         <processorPath useClasspath="true" />
         <module name="app-persistence" />
         <module name="app-rest" />
+        <module name="consuming-rest" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="app-persistence" target="1.8" />
       <module name="app-rest" target="1.8" />
+      <module name="consuming-rest" target="1.5" />
       <module name="DevCourses" target="1.5" />
     </bytecodeTargetLevel>
   </component>

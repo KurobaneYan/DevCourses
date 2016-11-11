@@ -20,7 +20,7 @@ import java.util.Properties;
 @ComponentScan(basePackages = {"com.netcracker.sd4.persistence.dao.impl"})
 @PropertySource("classpath:persistence.properties")
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "com.netcracker.sd4.persistence.api.dao")
+@EnableJpaRepositories(basePackages = "com.netcracker.sd4.persistence.dao")
 public class PersistenceConfiguration {
 
     private Environment environment;
