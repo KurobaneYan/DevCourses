@@ -38,11 +38,11 @@
         </dependency>
 
         <!-- uncomment for generation jpa static metamodels -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-jpamodelgen</artifactId>
-            <version>4.3.11.Final</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.hibernate</groupId>-->
+            <!--<artifactId>hibernate-jpamodelgen</artifactId>-->
+            <!--<version>4.3.11.Final</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>org.springframework.data</groupId>
