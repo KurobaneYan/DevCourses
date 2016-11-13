@@ -1,7 +1,6 @@
 package com.netcracker.sd4.persistence.domain;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Set;
 
 @Entity
@@ -13,7 +12,7 @@ public class Car {
     private String model;
     private String manufacturer;
     private String bodyStyle;
-    private Set<CarInOrder> carInOrdersById;
+    private Set<CarInOrder> carsInOrder;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -116,13 +115,13 @@ public class Car {
         return result;
     }
 
-    @OneToMany(mappedBy = "carByFkCar")
-    public Set<CarInOrder> getCarInOrdersById() {
-        return carInOrdersById;
+    @OneToMany(mappedBy = "car")
+    public Set<CarInOrder> getCarsInOrder() {
+        return carsInOrder;
     }
 
-    public void setCarInOrdersById(Set<CarInOrder> carInOrdersById) {
-        this.carInOrdersById = carInOrdersById;
+    public void setCarsInOrder(Set<CarInOrder> carsInOrder) {
+        this.carsInOrder = carsInOrder;
     }
 
     @Override

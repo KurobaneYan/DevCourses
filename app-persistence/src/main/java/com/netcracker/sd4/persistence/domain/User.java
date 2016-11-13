@@ -10,6 +10,7 @@ public class User {
     private String surname;
     private String email;
     private String phoneNumber;
+    private String password;
     private Set<Order> orders;
     private Set<Role> roles;
 
@@ -64,6 +65,16 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
+    @Basic
+    @Column(name = "password")
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -90,7 +101,7 @@ public class User {
         return result;
     }
 
-    @OneToMany(mappedBy = "userByFkUser")
+    @OneToMany(mappedBy = "user")
     public Set<Order> getOrders() {
         return orders;
     }

@@ -3,12 +3,12 @@ package com.netcracker.sd4.persistence.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "car_in_order", schema = "netcracker")
+@Table(name = "car_in_order")
 public class CarInOrder {
     private int id;
     private int amount;
-    private Car carByFkCar;
-    private Order orderByFkOrder;
+    private Car car;
+    private Order order;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -53,22 +53,22 @@ public class CarInOrder {
 
     @ManyToOne
     @JoinColumn(name = "fk_car", referencedColumnName = "id", nullable = false)
-    public Car getCarByFkCar() {
-        return carByFkCar;
+    public Car getCar() {
+        return car;
     }
 
-    public void setCarByFkCar(Car carByFkCar) {
-        this.carByFkCar = carByFkCar;
+    public void setCar(Car car) {
+        this.car = car;
     }
 
     @ManyToOne
     @JoinColumn(name = "fk_order", referencedColumnName = "id", nullable = false)
-    public Order getOrderByFkOrder() {
-        return orderByFkOrder;
+    public Order getOrder() {
+        return order;
     }
 
-    public void setOrderByFkOrder(Order orderByFkOrder) {
-        this.orderByFkOrder = orderByFkOrder;
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
     @Override
@@ -76,8 +76,8 @@ public class CarInOrder {
         return "CarInOrder{" +
                 "id=" + id +
                 ", amount=" + amount +
-                ", carByFkCar=" + carByFkCar +
-                ", orderByFkOrder=" + orderByFkOrder +
+                ", car=" + car +
+                ", order=" + order +
                 '}';
     }
 }

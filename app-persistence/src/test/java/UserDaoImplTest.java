@@ -1,5 +1,6 @@
 import com.netcracker.sd4.persistence.configuration.PersistenceConfiguration;
 import com.netcracker.sd4.persistence.dao.impl.UserDaoImpl;
+import com.netcracker.sd4.persistence.domain.CarInOrder;
 import com.netcracker.sd4.persistence.domain.Order;
 import com.netcracker.sd4.persistence.domain.Role;
 import com.netcracker.sd4.persistence.domain.User;
@@ -28,6 +29,7 @@ public class UserDaoImplTest {
     private final String ANOTHER_USER_EMAIL = "soem.sfger@agtsfs.erfs";
     private final String USER_PHONE = "";
     private final String ANOTHER_USER_PHONE = "100304567";
+    private final String PASSWORD = "VeryBadPassword";
 
     @Autowired
     private UserDaoImpl userDaoImpl;
@@ -39,6 +41,7 @@ public class UserDaoImplTest {
         user.setSurname(USER_SURNAME);
         user.setEmail(USER_EMAIL);
         user.setPhoneNumber(USER_PHONE);
+        user.setPassword(PASSWORD);
         userDaoImpl.add(user);
     }
 
@@ -61,6 +64,7 @@ public class UserDaoImplTest {
         user.setSurname(ANOUTHER_USER_SURNAME);
         user.setEmail(ANOTHER_USER_EMAIL);
         user.setPhoneNumber(ANOTHER_USER_PHONE);
+        user.setPassword(PASSWORD + "2");
         userDaoImpl.add(user);
         Assert.assertNotNull(userDaoImpl.getUser(ANOTHER_USER_NAME, ANOUTHER_USER_SURNAME));
     }
@@ -94,5 +98,12 @@ public class UserDaoImplTest {
         Assert.assertTrue(roles.size() > 0);
         Set<Order> orders = user.getOrders();
         Assert.assertTrue(orders.size() > 0);
+        for (Order order : orders) {
+            Set<CarInOrder> carInOrder = order.getCarsInOrder();
+            Assert.assertTrue(carInOrder.size() > 0);
+            for (CarInOrder carin : carInOrder) {
+                Assert.assertNotNull(carin.getCar());
+            }
+        }
     }
 }

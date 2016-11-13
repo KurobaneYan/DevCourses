@@ -1,6 +1,7 @@
 package com.netcracker.sd4.persistence.domain;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.util.Set;
 
 @Entity
@@ -8,9 +9,9 @@ import java.util.Set;
 public class Order {
     private int id;
     private int cast;
-    private int date;
-    private Set<CarInOrder> carInOrdersById;
-    private User userByFkUser;
+    private Date date;
+    private Set<CarInOrder> carsInOrder;
+    private User user;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,11 +36,11 @@ public class Order {
 
     @Basic
     @Column(name = "date")
-    public int getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -61,27 +62,27 @@ public class Order {
     public int hashCode() {
         int result = id;
         result = 31 * result + cast;
-        result = 31 * result + date;
+        result = 31 * result + date.hashCode();
         return result;
     }
 
-    @OneToMany(mappedBy = "orderByFkOrder")
-    public Set<CarInOrder> getCarInOrdersById() {
-        return carInOrdersById;
+    @OneToMany(mappedBy = "order")
+    public Set<CarInOrder> getCarsInOrder() {
+        return carsInOrder;
     }
 
-    public void setCarInOrdersById(Set<CarInOrder> carInOrdersById) {
-        this.carInOrdersById = carInOrdersById;
+    public void setCarsInOrder(Set<CarInOrder> carsInOrder) {
+        this.carsInOrder = carsInOrder;
     }
 
     @ManyToOne
     @JoinColumn(name = "fk_user", referencedColumnName = "id", nullable = false)
-    public User getUserByFkUser() {
-        return userByFkUser;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserByFkUser(User userByFkUser) {
-        this.userByFkUser = userByFkUser;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
@@ -90,8 +91,8 @@ public class Order {
                 "id=" + id +
                 ", cast=" + cast +
                 ", date=" + date +
-                ", carInOrdersById=" + carInOrdersById +
-                ", userByFkUser=" + userByFkUser +
+                ", carsInOrder=" + carsInOrder +
+                ", user=" + user +
                 '}';
     }
 }

@@ -68,7 +68,7 @@ public class CarDaoImplTest {
     }
 
     @Test(expected = NoResultException.class)
-    public void testDeleteCountry() {
+    public void testDeleteCar() {
         Car car = carDaoImpl.getCarByModel(MODEL);
         carDaoImpl.delete(car);
         carDaoImpl.getCarByModel(MODEL);

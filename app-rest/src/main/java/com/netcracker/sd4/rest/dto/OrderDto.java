@@ -1,8 +1,10 @@
 package com.netcracker.sd4.rest.dto;
 
+import java.sql.Date;
+
 public class OrderDto {
     private int cast;
-    private int date;
+    private Date date;
 
     public int getCast() {
         return cast;
@@ -12,11 +14,11 @@ public class OrderDto {
         this.cast = cast;
     }
 
-    public int getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 }
