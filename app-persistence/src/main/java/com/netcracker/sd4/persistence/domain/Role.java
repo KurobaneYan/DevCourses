@@ -3,15 +3,14 @@ package com.netcracker.sd4.persistence.domain;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 public class Role {
     private int id;
     private String name;
     private Boolean isAdmin;
-    private Set<User> users;
+    private List<User> users;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -68,11 +67,11 @@ public class Role {
     }
 
     @ManyToMany(cascade=CascadeType.ALL, mappedBy="roles")
-    public Set<User> getUsers() {
+    public List<User> getUsers() {
         return users;
     }
 
-    public void setUsers(Set<User> users) {
+    public void setUsers(List<User> users) {
         this.users = users;
     }
 

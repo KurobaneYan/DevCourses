@@ -1,7 +1,7 @@
 package com.netcracker.sd4.persistence.domain;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 public class User {
@@ -11,8 +11,8 @@ public class User {
     private String email;
     private String phoneNumber;
     private String password;
-    private Set<Order> orders;
-    private Set<Role> roles;
+    private List<Order> orders;
+    private List<Role> roles;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -102,21 +102,21 @@ public class User {
     }
 
     @OneToMany(mappedBy = "user")
-    public Set<Order> getOrders() {
+    public List<Order> getOrders() {
         return orders;
     }
 
-    public void setOrders(Set<Order> orders) {
+    public void setOrders(List<Order> orders) {
         this.orders = orders;
     }
 
     @ManyToMany(cascade=CascadeType.ALL)
     @JoinTable(name="user_role", joinColumns=@JoinColumn(name="fk_user"), inverseJoinColumns=@JoinColumn(name="fk_role"))
-    public Set<Role> getRoles() {
+    public List<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
+    public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
 

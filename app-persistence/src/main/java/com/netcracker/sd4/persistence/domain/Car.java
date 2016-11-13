@@ -1,7 +1,7 @@
 package com.netcracker.sd4.persistence.domain;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 public class Car {
@@ -12,7 +12,7 @@ public class Car {
     private String model;
     private String manufacturer;
     private String bodyStyle;
-    private Set<CarInOrder> carsInOrder;
+    private List<CarInOrder> carsInOrder;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -116,11 +116,11 @@ public class Car {
     }
 
     @OneToMany(mappedBy = "car")
-    public Set<CarInOrder> getCarsInOrder() {
+    public List<CarInOrder> getCarsInOrder() {
         return carsInOrder;
     }
 
-    public void setCarsInOrder(Set<CarInOrder> carsInOrder) {
+    public void setCarsInOrder(List<CarInOrder> carsInOrder) {
         this.carsInOrder = carsInOrder;
     }
 

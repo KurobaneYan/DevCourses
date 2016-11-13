@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.NoResultException;
 import java.util.List;
-import java.util.Set;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = PersistenceConfiguration.class)
@@ -94,12 +93,12 @@ public class UserDaoImplTest {
     public void testGetDeepUserData() {
         User user = userDaoImpl.getUser("Alex", "Chuduk");
         Assert.assertNotNull(user);
-        Set<Role> roles = user.getRoles();
+        List<Role> roles = user.getRoles();
         Assert.assertTrue(roles.size() > 0);
-        Set<Order> orders = user.getOrders();
+        List<Order> orders = user.getOrders();
         Assert.assertTrue(orders.size() > 0);
         for (Order order : orders) {
-            Set<CarInOrder> carInOrder = order.getCarsInOrder();
+            List<CarInOrder> carInOrder = order.getCarsInOrder();
             Assert.assertTrue(carInOrder.size() > 0);
             for (CarInOrder carin : carInOrder) {
                 Assert.assertNotNull(carin.getCar());

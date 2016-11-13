@@ -1,7 +1,9 @@
 package com.netcracker.sd4.rest.services.impl;
 
 import com.netcracker.sd4.persistence.dao.impl.UserDaoImpl;
+import com.netcracker.sd4.persistence.domain.Role;
 import com.netcracker.sd4.persistence.domain.User;
+import com.netcracker.sd4.rest.dto.RoleDto;
 import com.netcracker.sd4.rest.dto.UserDto;
 import com.netcracker.sd4.rest.exceptions.ResourceNotFoundException;
 import com.netcracker.sd4.rest.services.UserService;
@@ -25,9 +27,16 @@ public class UserServiceImpl implements UserService {
             TypeDescriptor.collection(List.class, TypeDescriptor.valueOf(User.class));
     private static final TypeDescriptor userDtoDescriptor =
             TypeDescriptor.collection(List.class, TypeDescriptor.valueOf(UserDto.class));
+    private static final TypeDescriptor roleDescriptor =
+            TypeDescriptor.collection(List.class, TypeDescriptor.valueOf(Role.class));
+    private static final TypeDescriptor roleDtoDescriptor =
+            TypeDescriptor.collection(List.class, TypeDescriptor.valueOf(RoleDto.class));
 
-    @Value("${controllers.car.errors.not.found}")
-    private String NOT_FOUND_MESSAGE;
+    @Value("${controllers.user.errors.not.found}")
+    private String USERS_NOT_FOUND_MESSAGE;
+
+    @Value("${controllers.role.errors.not.found}")
+    private String ROLES_NOT_FOUND_MESSAGE;
 
     @Autowired
     public void setCarDao(UserDaoImpl userDaoImpl) {
@@ -45,7 +54,19 @@ public class UserServiceImpl implements UserService {
         @SuppressWarnings("unchecked")
         List<UserDto> result = (List<UserDto>) conversionService.convert(cars, userDescriptor, userDtoDescriptor);
         if (CollectionUtils.isEmpty(result)) {
-            throw new ResourceNotFoundException(NOT_FOUND_MESSAGE);
+            throw new ResourceNotFoundException(USERS_NOT_FOUND_MESSAGE);
+        }
+        return result;
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<RoleDto> getUserRoles(UserDto userDto) {
+        User user = userDaoImpl.getUser(userDto.getName(), userDto.getSurname());
+        List<Role> roles =  user.getRoles();
+        List<RoleDto> result = (List<RoleDto>) conversionService.convert(roles, roleDescriptor, roleDtoDescriptor);
+        if (CollectionUtils.isEmpty(result)) {
+            throw new ResourceNotFoundException(ROLES_NOT_FOUND_MESSAGE);
         }
         return result;
     }

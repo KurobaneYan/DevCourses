@@ -2,7 +2,7 @@ package com.netcracker.sd4.persistence.domain;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "`order`")
@@ -10,7 +10,7 @@ public class Order {
     private int id;
     private int cast;
     private Date date;
-    private Set<CarInOrder> carsInOrder;
+    private List<CarInOrder> carsInOrder;
     private User user;
 
     @Id
@@ -67,11 +67,11 @@ public class Order {
     }
 
     @OneToMany(mappedBy = "order")
-    public Set<CarInOrder> getCarsInOrder() {
+    public List<CarInOrder> getCarsInOrder() {
         return carsInOrder;
     }
 
-    public void setCarsInOrder(Set<CarInOrder> carsInOrder) {
+    public void setCarsInOrder(List<CarInOrder> carsInOrder) {
         this.carsInOrder = carsInOrder;
     }
 
