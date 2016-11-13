@@ -1,7 +1,6 @@
-import com.netcracker.sd4.persistence.dao.impl.CarDao;
 import com.netcracker.sd4.persistence.configuration.PersistenceConfiguration;
+import com.netcracker.sd4.persistence.dao.impl.CarDaoImpl;
 import com.netcracker.sd4.persistence.domain.Car;
-import com.netcracker.sd4.persistence.domain.CarInOrder;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,12 +12,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.NoResultException;
 import java.util.List;
-import java.util.Set;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = PersistenceConfiguration.class)
 @Transactional
-public class CarDaoTest {
+public class CarDaoImplTest {
     private final String MODEL = "model XKR";
     private final String ANOTHER_MODEL = "super new XR";
     private final String MANUFACTURER = "My favorite MMM";
@@ -28,7 +26,7 @@ public class CarDaoTest {
     private final int AMOUNT_LEFT = 100;
 
     @Autowired
-    private CarDao carDao;
+    private CarDaoImpl carDaoImpl;
 
     @Before
     public void setUp() {
@@ -39,12 +37,12 @@ public class CarDaoTest {
         car.setAmountLeft(AMOUNT_LEFT);
         car.setPrice(PRICE);
         car.setProductionYear(YEAR);
-        carDao.add(car);
+        carDaoImpl.add(car);
     }
 
     @Test
     public void testGetCar() {
-        Car car = carDao.getCarByModel(MODEL);
+        Car car = carDaoImpl.getCarByModel(MODEL);
         Assert.assertNotNull(car);
     }
 
@@ -57,28 +55,28 @@ public class CarDaoTest {
         car.setAmountLeft(AMOUNT_LEFT);
         car.setPrice(PRICE);
         car.setProductionYear(YEAR);
-        carDao.add(car);
-        Assert.assertNotNull(carDao.getCarByModel(ANOTHER_MODEL));
+        carDaoImpl.add(car);
+        Assert.assertNotNull(carDaoImpl.getCarByModel(ANOTHER_MODEL));
     }
 
     @Test
     public void testUpdateCar() {
-        Car car = carDao.getCarByModel(MODEL);
+        Car car = carDaoImpl.getCarByModel(MODEL);
         car.setModel(MODEL + "2");
-        carDao.update(car);
-        Assert.assertNotNull(carDao.getCarByModel(MODEL + "2"));
+        carDaoImpl.update(car);
+        Assert.assertNotNull(carDaoImpl.getCarByModel(MODEL + "2"));
     }
 
     @Test(expected = NoResultException.class)
     public void testDeleteCountry() {
-        Car car = carDao.getCarByModel(MODEL);
-        carDao.delete(car);
-        carDao.getCarByModel(MODEL);
+        Car car = carDaoImpl.getCarByModel(MODEL);
+        carDaoImpl.delete(car);
+        carDaoImpl.getCarByModel(MODEL);
     }
 
     @Test
     public void testGetAllCars() {
-        List<Car> allEntities = carDao.getAll(Car.class);
+        List<Car> allEntities = carDaoImpl.getAll(Car.class);
         Assert.assertTrue(allEntities.size() > 0);
     }
 }

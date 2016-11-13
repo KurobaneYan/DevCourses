@@ -1,6 +1,6 @@
 package com.netcracker.sd4.persistence.dao.impl;
 
-import com.netcracker.sd4.persistence.dao.BaseDao;
+import com.netcracker.sd4.persistence.dao.GenericDao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -10,7 +10,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
-public abstract class AbstractDao implements BaseDao {
+public abstract class AbstractDao implements GenericDao {
 
     @PersistenceContext
     protected EntityManager entityManager;

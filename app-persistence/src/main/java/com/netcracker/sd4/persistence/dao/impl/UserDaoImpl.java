@@ -1,6 +1,6 @@
 package com.netcracker.sd4.persistence.dao.impl;
 
-import com.netcracker.sd4.persistence.dao.UserDaoIntefrace;
+import com.netcracker.sd4.persistence.dao.UserDao;
 import com.netcracker.sd4.persistence.domain.User;
 import com.netcracker.sd4.persistence.domain.User_;
 import org.springframework.stereotype.Repository;
@@ -10,7 +10,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 @Repository
-public class UserDao extends AbstractDao implements UserDaoIntefrace{
+public class UserDaoImpl extends AbstractDao implements UserDao {
 
     @Override
     public User getUser(String name, String surname) {

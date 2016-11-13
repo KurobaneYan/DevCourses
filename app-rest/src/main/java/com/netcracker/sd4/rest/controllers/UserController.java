@@ -1,7 +1,7 @@
 package com.netcracker.sd4.rest.controllers;
 
 import com.netcracker.sd4.rest.dto.UserDto;
-import com.netcracker.sd4.rest.services.UserServiceInterface;
+import com.netcracker.sd4.rest.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,10 +14,10 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-    private UserServiceInterface userService;
+    private UserService userService;
 
     @Autowired
-    public void setUserService(UserServiceInterface userService) {
+    public void setUserService(UserService userService) {
         this.userService = userService;
     }
 

@@ -1,8 +1,7 @@
 package com.netcracker.sd4.rest.controllers;
 
 import com.netcracker.sd4.rest.dto.CarDto;
-import com.netcracker.sd4.rest.services.CarServiceInterface;
-import com.netcracker.sd4.rest.services.impl.CarService;
+import com.netcracker.sd4.rest.services.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,10 +13,10 @@ import java.util.List;
 @RequestMapping("/cars")
 public class CarController {
 
-    private CarServiceInterface carService;
+    private CarService carService;
 
     @Autowired
-    public void setCarService(CarServiceInterface carService) {
+    public void setCarService(CarService carService) {
         this.carService = carService;
     }
 

@@ -1,10 +1,10 @@
 package com.netcracker.sd4.rest.services.impl;
 
-import com.netcracker.sd4.persistence.dao.impl.UserDao;
+import com.netcracker.sd4.persistence.dao.impl.UserDaoImpl;
 import com.netcracker.sd4.persistence.domain.User;
 import com.netcracker.sd4.rest.dto.UserDto;
 import com.netcracker.sd4.rest.exceptions.ResourceNotFoundException;
-import com.netcracker.sd4.rest.services.UserServiceInterface;
+import com.netcracker.sd4.rest.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.convert.ConversionService;
@@ -17,8 +17,8 @@ import java.util.List;
 
 @Service
 @Transactional
-public class UserService implements UserServiceInterface {
-    private UserDao userDao;
+public class UserServiceImpl implements UserService {
+    private UserDaoImpl userDaoImpl;
     private ConversionService conversionService;
 
     private static final TypeDescriptor userDescriptor =
@@ -30,8 +30,8 @@ public class UserService implements UserServiceInterface {
     private String NOT_FOUND_MESSAGE;
 
     @Autowired
-    public void setCarDao(UserDao userDao) {
-        this.userDao = userDao;
+    public void setCarDao(UserDaoImpl userDaoImpl) {
+        this.userDaoImpl = userDaoImpl;
     }
 
     @Autowired
@@ -40,7 +40,7 @@ public class UserService implements UserServiceInterface {
     }
     @Override
     public List<UserDto> getAllUsers() {
-        List<User> cars = userDao.getAll(User.class);
+        List<User> cars = userDaoImpl.getAll(User.class);
 
         @SuppressWarnings("unchecked")
         List<UserDto> result = (List<UserDto>) conversionService.convert(cars, userDescriptor, userDtoDescriptor);

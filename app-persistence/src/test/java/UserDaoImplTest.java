@@ -1,6 +1,5 @@
-import com.netcracker.sd4.persistence.dao.impl.UserDao;
 import com.netcracker.sd4.persistence.configuration.PersistenceConfiguration;
-import com.netcracker.sd4.persistence.domain.CarInOrder;
+import com.netcracker.sd4.persistence.dao.impl.UserDaoImpl;
 import com.netcracker.sd4.persistence.domain.Order;
 import com.netcracker.sd4.persistence.domain.Role;
 import com.netcracker.sd4.persistence.domain.User;
@@ -20,7 +19,7 @@ import java.util.Set;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = PersistenceConfiguration.class)
 @Transactional
-public class UserDaoTest {
+public class UserDaoImplTest {
     private final String USER_NAME = "Alex";
     private final String ANOTHER_USER_NAME = "Yasn";
     private final String USER_SURNAME = "Chulukas";
@@ -31,7 +30,7 @@ public class UserDaoTest {
     private final String ANOTHER_USER_PHONE = "100304567";
 
     @Autowired
-    private UserDao userDao;
+    private UserDaoImpl userDaoImpl;
 
     @Before
     public void setUp() {
@@ -40,18 +39,18 @@ public class UserDaoTest {
         user.setSurname(USER_SURNAME);
         user.setEmail(USER_EMAIL);
         user.setPhoneNumber(USER_PHONE);
-        userDao.add(user);
+        userDaoImpl.add(user);
     }
 
     @Test
     public void testGetUser() {
-        User user = userDao.getUser(USER_NAME, USER_SURNAME);
+        User user = userDaoImpl.getUser(USER_NAME, USER_SURNAME);
         Assert.assertNotNull(user);
     }
 
     @Test
     public void testGetUserByEmail() {
-        User user = userDao.getUserByEmail(USER_EMAIL);
+        User user = userDaoImpl.getUserByEmail(USER_EMAIL);
         Assert.assertNotNull(user);
     }
 
@@ -62,34 +61,34 @@ public class UserDaoTest {
         user.setSurname(ANOUTHER_USER_SURNAME);
         user.setEmail(ANOTHER_USER_EMAIL);
         user.setPhoneNumber(ANOTHER_USER_PHONE);
-        userDao.add(user);
-        Assert.assertNotNull(userDao.getUser(ANOTHER_USER_NAME, ANOUTHER_USER_SURNAME));
+        userDaoImpl.add(user);
+        Assert.assertNotNull(userDaoImpl.getUser(ANOTHER_USER_NAME, ANOUTHER_USER_SURNAME));
     }
 
     @Test
     public void testUpdateUser() {
-        User user = userDao.getUser(USER_NAME, USER_SURNAME);
+        User user = userDaoImpl.getUser(USER_NAME, USER_SURNAME);
         user.setName(ANOTHER_USER_NAME);
-        userDao.add(user);
-        Assert.assertNotNull(userDao.getUser(ANOTHER_USER_NAME, USER_SURNAME));
+        userDaoImpl.add(user);
+        Assert.assertNotNull(userDaoImpl.getUser(ANOTHER_USER_NAME, USER_SURNAME));
     }
 
     @Test(expected = NoResultException.class)
     public void testDeleteUser() {
-        User user = userDao.getUser(USER_NAME, USER_SURNAME);
-        userDao.delete(user);
-        userDao.getUser(USER_NAME, USER_SURNAME);
+        User user = userDaoImpl.getUser(USER_NAME, USER_SURNAME);
+        userDaoImpl.delete(user);
+        userDaoImpl.getUser(USER_NAME, USER_SURNAME);
     }
 
     @Test
     public void testGetAllCars() {
-        List<User> allEntities = userDao.getAll(User.class);
+        List<User> allEntities = userDaoImpl.getAll(User.class);
         Assert.assertTrue(allEntities.size() > 0);
     }
 
     @Test
     public void testGetDeepUserData() {
-        User user = userDao.getUser("Alex", "Chuduk");
+        User user = userDaoImpl.getUser("Alex", "Chuduk");
         Assert.assertNotNull(user);
         Set<Role> roles = user.getRoles();
         Assert.assertTrue(roles.size() > 0);

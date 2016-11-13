@@ -3,7 +3,6 @@ package weather;
 import hello.wsdl.*;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
-import org.springframework.ws.stream.StreamingPayload;
 
 import java.text.SimpleDateFormat;
 

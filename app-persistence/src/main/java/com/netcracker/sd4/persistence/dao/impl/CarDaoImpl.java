@@ -1,7 +1,7 @@
 package com.netcracker.sd4.persistence.dao.impl;
 
+import com.netcracker.sd4.persistence.dao.CarDao;
 import com.netcracker.sd4.persistence.domain.Car;
-import com.netcracker.sd4.persistence.dao.CarDaoInterface;
 import com.netcracker.sd4.persistence.domain.Car_;
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +10,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 @Repository
-public class CarDao extends AbstractDao implements CarDaoInterface {
+public class CarDaoImpl extends AbstractDao implements CarDao {
 
     @Override
     public Car getCarByModel(String model) {

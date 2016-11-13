@@ -1,11 +1,10 @@
 package com.netcracker.sd4.rest.services;
 
-import com.netcracker.sd4.persistence.domain.Car;
 import com.netcracker.sd4.rest.dto.CarDto;
 
 import java.util.List;
 
-public interface CarServiceInterface {
+public interface CarService {
     List<CarDto> getAllCars();
     CarDto addCar(CarDto carDto);
     CarDto updateCar(String model, CarDto carDto);

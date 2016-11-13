@@ -2,7 +2,7 @@ package com.netcracker.sd4.persistence.dao;
 
 import java.util.List;
 
-public interface BaseDao {
+public interface GenericDao {
     <T> List<T> getAll(Class<T> clazz);
     void add(Object o);
     void update(Object o);
