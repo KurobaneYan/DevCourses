@@ -9,6 +9,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ConversionServiceFactoryBean;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import weather.WeatherConfiguration;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -16,7 +17,7 @@ import java.util.Set;
 @Configuration
 @EnableWebMvc
 @PropertySource("classpath:messages.properties")
-@Import(PersistenceConfiguration.class)
+@Import({PersistenceConfiguration.class, WeatherConfiguration.class})
 public class RestConfiguration {
 
     @Bean

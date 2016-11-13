@@ -49,6 +49,12 @@
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-commons:1.12.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.8.9" />
           <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.21" />
+          <element id="archive" name="consuming-rest-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="consuming-rest" />
+          </element>
+          <element id="library" level="project" name="Maven: org.springframework.ws:spring-ws-core:2.4.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.ws:spring-xml:2.4.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-oxm:4.2.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.3.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-test:4.3.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.16" />

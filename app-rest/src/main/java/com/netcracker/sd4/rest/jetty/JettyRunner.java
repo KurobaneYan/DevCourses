@@ -15,14 +15,14 @@ public class JettyRunner {
     }
 
     private void startJetty(int port) throws Exception {
-        LOGGER.debug("Starting server at port {}", port);
+        LOGGER.info("Starting server at port {}", port);
         Server server = new Server(port);
         WebAppContext webApp = new WebAppContext();
         webApp.setContextPath("/");
         webApp.setWar("C:\\IdeaProjects\\DevCourses\\app-rest\\target\\app-rest.war");
         server.setHandler(webApp);
         server.start();
-        LOGGER.debug("Server started at port {}", port);
+        LOGGER.info("Server started at port {}", port);
         server.join();
     }
 }

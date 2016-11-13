@@ -1,3 +1,5 @@
+package rest.client;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -27,7 +29,7 @@ public class Quote {
 
     @Override
     public String toString() {
-        return "Quote{" +
+        return "rest.client.Quote{" +
                 "type='" + type + '\'' +
                 ", value=" + value +
                 '}';
