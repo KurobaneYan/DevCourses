@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/user")
 public class UserController {
 
     private UserService userService;
@@ -29,14 +29,13 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-
     @RequestMapping(value = "/roles" , method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<RoleDto> getAllRoles(@RequestBody UserDto userDto) {
+    public List<RoleDto> getUserRoles(@RequestBody UserDto userDto) {
         return userService.getUserRoles(userDto);
     }
 
     @RequestMapping(value = "/orders", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<OrderDto> getOrders(@RequestBody UserDto userDto) {
+    public List<OrderDto> getUserOrders(@RequestBody UserDto userDto) {
         return userService.getUserOrders(userDto);
     }
 }
