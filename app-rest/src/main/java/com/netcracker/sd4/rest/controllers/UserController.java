@@ -1,12 +1,15 @@
 package com.netcracker.sd4.rest.controllers;
 
+import com.netcracker.sd4.rest.dto.OrderDto;
 import com.netcracker.sd4.rest.dto.RoleDto;
 import com.netcracker.sd4.rest.dto.UserDto;
 import com.netcracker.sd4.rest.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -27,9 +30,13 @@ public class UserController {
     }
 
 
-    @RequestMapping(value = "/roles" ,method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(code = HttpStatus.CREATED)
-    public List<RoleDto> getAllRoles(@RequestBody UserDto user) {
-        return userService.getUserRoles(user);
+    @RequestMapping(value = "/roles" , method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<RoleDto> getAllRoles(@RequestBody UserDto userDto) {
+        return userService.getUserRoles(userDto);
+    }
+
+    @RequestMapping(value = "/orders", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<OrderDto> getOrders(@RequestBody UserDto userDto) {
+        return userService.getUserOrders(userDto);
     }
 }

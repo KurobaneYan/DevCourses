@@ -1,6 +1,6 @@
 package com.netcracker.sd4.rest.services.impl;
 
-import com.netcracker.sd4.persistence.dao.impl.CarDaoImpl;
+import com.netcracker.sd4.persistence.dao.CarDao;
 import com.netcracker.sd4.persistence.domain.Car;
 import com.netcracker.sd4.rest.dto.CarDto;
 import com.netcracker.sd4.rest.exceptions.ResourceNotFoundException;
@@ -19,7 +19,7 @@ import java.util.List;
 @Transactional
 public class CarServiceImpl implements CarService {
 
-    private CarDaoImpl carDaoImpl;
+    private CarDao carDao;
     private ConversionService conversionService;
 
     private static final TypeDescriptor carDescriptor =
@@ -28,11 +28,11 @@ public class CarServiceImpl implements CarService {
             TypeDescriptor.collection(List.class, TypeDescriptor.valueOf(CarDto.class));
 
     @Value("${controllers.car.errors.not.found}")
-    private String NOT_FOUND_MESSAGE;
+    private String CARS_NOT_FOUND_MESSAGE;
 
     @Autowired
-    public void setCarDaoImpl(CarDaoImpl carDaoImpl) {
-        this.carDaoImpl = carDaoImpl;
+    public void setCarDao(CarDao carDao) {
+        this.carDao = carDao;
     }
 
     @Autowired
@@ -41,35 +41,17 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public List<CarDto> getAllCars() {
-        List<Car> cars = carDaoImpl.getAll(Car.class);
-
-        @SuppressWarnings("unchecked")
-        List<CarDto> result = (List<CarDto>) conversionService.convert(cars, carDescriptor, carDtoDescriptor);
-        if (CollectionUtils.isEmpty(result)) {
-            throw new ResourceNotFoundException(NOT_FOUND_MESSAGE);
-        }
-        return result;
-    }
-
-    @Override
     public CarDto addCar(CarDto carDto) {
         Car car = conversionService.convert(carDto, Car.class);
-        carDaoImpl.add(car);
+        carDao.add(car);
         return carDto;
     }
 
     @Override
-    public void deleteCar(String model) {
-        Car car = carDaoImpl.getCarByModel(model);
-        carDaoImpl.delete(car);
-    }
-
-    @Override
     public CarDto updateCar(String model, CarDto carDto) {
-        Car car = carDaoImpl.getCarByModel(model);
+        Car car = carDao.getCarByModel(model);
         if (car == null) {
-            throw new ResourceNotFoundException(NOT_FOUND_MESSAGE);
+            throw new ResourceNotFoundException(CARS_NOT_FOUND_MESSAGE);
         }
         car.setModel(carDto.getModel());
         car.setManufacturer(carDto.getManufacturer());
@@ -77,7 +59,29 @@ public class CarServiceImpl implements CarService {
         car.setAmountLeft(carDto.getAmountLeft());
         car.setBodyStyle(carDto.getBodyStyle());
         car.setProductionYear(carDto.getProductionYear());
-        carDaoImpl.update(car);
+        carDao.update(car);
         return carDto;
+    }
+
+    @Override
+    public void deleteCar(String model) {
+        Car car = carDao.getCarByModel(model);
+        if (car == null) {
+            throw new ResourceNotFoundException(CARS_NOT_FOUND_MESSAGE);
+        } else {
+            carDao.delete(car);
+        }
+    }
+
+    @Override
+    public List<CarDto> getAllCars() {
+        List<Car> cars = carDao.getAll(Car.class);
+
+        @SuppressWarnings("unchecked")
+        List<CarDto> result = (List<CarDto>) conversionService.convert(cars, carDescriptor, carDtoDescriptor);
+        if (CollectionUtils.isEmpty(result)) {
+            throw new ResourceNotFoundException(CARS_NOT_FOUND_MESSAGE);
+        }
+        return result;
     }
 }
