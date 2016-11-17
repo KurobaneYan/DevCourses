@@ -1,6 +1,5 @@
 package com.netcracker.sd4.rest.controllers;
 
-import com.netcracker.sd4.rest.dto.OrderDto;
 import com.netcracker.sd4.rest.dto.RoleDto;
 import com.netcracker.sd4.rest.dto.UserDto;
 import com.netcracker.sd4.rest.services.UserService;
@@ -46,10 +45,5 @@ public class UserController {
     @RequestMapping(value = "/roles" , method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<RoleDto> getUserRoles(@RequestBody UserDto userDto) {
         return userService.getUserRoles(userDto);
-    }
-
-    @RequestMapping(value = "/orders", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<OrderDto> getUserOrders(@RequestBody UserDto userDto) {
-        return userService.getUserOrders(userDto);
     }
 }

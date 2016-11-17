@@ -1,6 +1,5 @@
 package com.netcracker.sd4.rest.services;
 
-import com.netcracker.sd4.rest.dto.OrderDto;
 import com.netcracker.sd4.rest.dto.RoleDto;
 import com.netcracker.sd4.rest.dto.UserDto;
 
@@ -12,5 +11,4 @@ public interface UserService {
     void deleteUser(UserDto userDto);
     List<UserDto> getAllUsers();
     List<RoleDto> getUserRoles(UserDto userDto);
-    List<OrderDto> getUserOrders(UserDto userDto);
 }
