@@ -56,8 +56,8 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public RoleDto updateRole(RoleDto roleDto) {
-        Role role = roleDao.getRole(roleDto.getName());
+    public RoleDto updateRole(String name, RoleDto roleDto) {
+        Role role = roleDao.getRole(name);
         if (role == null) {
             throw new ResourceNotFoundException(ROLE_NOT_FOUND_MESSAGE);
         }
