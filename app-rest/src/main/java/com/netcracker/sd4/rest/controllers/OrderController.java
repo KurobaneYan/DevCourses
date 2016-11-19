@@ -27,7 +27,7 @@ public class OrderController {
         return orderService.getOrders(userDto);
     }
 
-    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/add", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public OrderDto addNewOrder(@RequestBody UserDto userDto) {
         return orderService.addOrder(userDto);
     }
