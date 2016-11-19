@@ -22,14 +22,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="app-client" />
         <module name="app-persistence" />
         <module name="app-portlet" />
+        <module name="app-portlet-spring" />
         <module name="app-rest" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="app-client" target="1.5" />
       <module name="app-persistence" target="1.8" />
       <module name="app-portlet" target="1.6" />
+      <module name="app-portlet-spring" target="1.6" />
       <module name="app-rest" target="1.8" />
       <module name="consuming-rest" target="1.5" />
       <module name="DevCourses" target="1.5" />

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DevCourses.iml" filepath="$PROJECT_DIR$/DevCourses.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app-client/app-client.iml" filepath="$PROJECT_DIR$/app-client/app-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/app-persistence/app-persistence.iml" filepath="$PROJECT_DIR$/app-persistence/app-persistence.iml" />
       <module fileurl="file://$PROJECT_DIR$/app-portlet/app-portlet.iml" filepath="$PROJECT_DIR$/app-portlet/app-portlet.iml" />
       <module fileurl="file://$PROJECT_DIR$/app-rest/app-rest.iml" filepath="$PROJECT_DIR$/app-rest/app-rest.iml" />
