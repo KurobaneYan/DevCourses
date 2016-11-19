@@ -1,6 +1,5 @@
 package com.netcracker.sd4.rest.controllers;
 
-import hello.wsdl.GetCityForecastByZIPResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
@@ -8,30 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-import weather.WeatherClient;
 
 import java.util.Map;
 
 @RestController
 @RequestMapping("/weather")
 public class WeatherController {
-    private WeatherClient weatherClient;
     private RestTemplate restTemplate;
 
-    @Autowired
-    public WeatherController(WeatherClient weatherClient) {
-        this.weatherClient = weatherClient;
-    }
-
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String get() {
-        String zipCode = "94304";
-        GetCityForecastByZIPResponse response = weatherClient.getCityForecastByZIP(zipCode);
-        weatherClient.printResponse(response);
-        return zipCode;
-    }
-
-    @RequestMapping(value = "/rest", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @SuppressWarnings("unchecked")
     public Map<String, Object> getRestWeather() {
         String city = "Minsk";

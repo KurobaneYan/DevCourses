@@ -11,7 +11,7 @@
     <modules>
         <module>app-persistence</module>
         <module>app-rest</module>
-        <module>consuming-rest</module>
+        <module>app-portlet</module>
     </modules>
 
     <properties>
