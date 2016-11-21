@@ -84,4 +84,18 @@ public class CarServiceImpl implements CarService {
         }
         return result;
     }
+
+    @Override
+    public List<CarDto> getCarsForPage(int page, int pageSize) {
+        List<Car> cars = carDao.getCarsForPage(page, pageSize);
+
+        @SuppressWarnings("unchecked")
+        List<CarDto> result = (List<CarDto>) conversionService.convert(cars, carDescriptor, carDtoDescriptor);
+        if (CollectionUtils.isEmpty(result)) {
+            throw new ResourceNotFoundException(CARS_NOT_FOUND_MESSAGE);
+        }
+        return result;
+    }
+
+
 }

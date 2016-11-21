@@ -1,7 +1,7 @@
 package com.netcracker.sd4.persistence.domain;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 @Entity

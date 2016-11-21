@@ -25,6 +25,11 @@ public class CarController {
         return carService.getAllCars();
     }
 
+    @RequestMapping(value = "/{page}/{pageSize}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<CarDto> getCarsForPage(@PathVariable("page") int page, @PathVariable("pageSize") int pageSize) {
+        return carService.getCarsForPage(page, pageSize);
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(code = HttpStatus.CREATED)
     public CarDto createCar(@RequestBody CarDto carDto) {

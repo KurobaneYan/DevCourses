@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -73,5 +74,13 @@ public class OrderServiceImpl implements OrderService {
         order.setUser(user);
         userDao.add(order);
         return conversionService.convert(order, OrderDto.class);
+    }
+
+    @Override
+    public void checkOrder(int id) {
+        Order order = userDao.get(Order.class, id);
+        Date date = new Date();
+        System.out.print(date);
+        order.setDate(date);
     }
 }

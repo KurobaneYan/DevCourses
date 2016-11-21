@@ -12,10 +12,9 @@
  * details.
  */
 
-package com.netcracker.devcourses;
+package com.netcracker.sd4.portlet;
 
 import com.liferay.portal.kernel.util.ReleaseInfo;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

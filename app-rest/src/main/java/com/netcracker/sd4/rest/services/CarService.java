@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface CarService {
     List<CarDto> getAllCars();
+    List<CarDto> getCarsForPage(int page, int pageSize);
     CarDto addCar(CarDto carDto);
     CarDto updateCar(String model, CarDto carDto);
     void deleteCar(String model);

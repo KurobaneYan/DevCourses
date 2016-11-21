@@ -5,10 +5,7 @@ import com.netcracker.sd4.rest.dto.UserDto;
 import com.netcracker.sd4.rest.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,5 +27,10 @@ public class OrderController {
     @RequestMapping(value = "/add", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public OrderDto addNewOrder(@RequestBody UserDto userDto) {
         return orderService.addOrder(userDto);
+    }
+
+    @RequestMapping(value = "/check/{id}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public void checkOrder(@PathVariable("id") int id) {
+        orderService.checkOrder(id);
     }
 }
