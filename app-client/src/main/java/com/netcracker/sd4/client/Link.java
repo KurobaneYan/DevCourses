@@ -4,6 +4,7 @@ import org.springframework.http.HttpMethod;
 
 public enum Link {
     GET_WEATHER ("weather", HttpMethod.GET),
+    GET_ORDERS("order", HttpMethod.POST),
     GET_CARS("cars", HttpMethod.GET);
 
     private final String url;

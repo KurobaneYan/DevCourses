@@ -20,5 +20,15 @@ public class Main {
         LOGGER.info(cars.toString());
         LOGGER.info(cars.getBody().get(0).toString());
 
+        String jsonUser = "{\n" +
+                "    \"name\": \"Alex\",\n" +
+                "    \"surname\": \"Chuduk\",\n" +
+                "    \"email\": \"a4dix3@gmail.com\",\n" +
+                "    \"phoneNumber\": \"+375291142095\",\n" +
+                "    \"password\": \"testpassword\"\n" +
+                "  }";
+        ResponseEntity<String> orders = client1.processWithBody(Link.GET_ORDERS, String.class, jsonUser);
+        LOGGER.info(orders.toString());
+
     }
 }
