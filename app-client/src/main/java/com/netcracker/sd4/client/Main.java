@@ -12,11 +12,11 @@ public class Main {
     public static void main(String[] args){
         Client client1 = new Client();
 
-        ResponseEntity<String> weather = client1.process(Link.GET_WEATHER, String.class);
+        ResponseEntity<String> weather = client1.process(Link.GET_WEATHER, String.class, null);
         LOGGER.info(weather.toString());
         LOGGER.info(weather.getBody());
 
-        ResponseEntity<List> cars = client1.process(Link.GET_CARS, List.class);
+        ResponseEntity<List> cars = client1.process(Link.GET_CARS, List.class, null);
         LOGGER.info(cars.toString());
         LOGGER.info(cars.getBody().get(0).toString());
 
@@ -27,7 +27,7 @@ public class Main {
                 "    \"phoneNumber\": \"+375291142095\",\n" +
                 "    \"password\": \"testpassword\"\n" +
                 "  }";
-        ResponseEntity<String> orders = client1.processWithBody(Link.GET_ORDERS, String.class, jsonUser);
+        ResponseEntity<String> orders = client1.process(Link.GET_ORDERS, String.class, jsonUser);
         LOGGER.info(orders.toString());
 
     }

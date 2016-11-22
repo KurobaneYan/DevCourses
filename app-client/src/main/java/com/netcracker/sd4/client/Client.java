@@ -10,33 +10,24 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Collections;
 
 public class Client {
-    public <T> ResponseEntity<T> process(Link link, Class<T> tClass) {
-        // Set the Accept header
-        HttpHeaders requestHeaders = new HttpHeaders();
-        requestHeaders.setAccept(Collections.singletonList(new MediaType("application","json")));
-        HttpEntity<?> requestEntity = new HttpEntity<Object>(requestHeaders);
-
-        // Create a new RestTemplate instance
-        RestTemplate restTemplate = new RestTemplate();
-
-        // Add the Jackson message converter
-        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-
-        return restTemplate.exchange(link.getLink(), link.getMethod(), requestEntity, tClass);
-    }
-
-    public <T, B> ResponseEntity<T> processWithBody(Link link, Class<T> tClass, B body) {
+    public <T, B> ResponseEntity<T> process(Link link, Class<T> tClass, B body) {
         // Set the Accept header
         HttpHeaders requestHeaders = new HttpHeaders();
         requestHeaders.setAccept(Collections.singletonList(new MediaType("application","json")));
         requestHeaders.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<B> requestEntity = new HttpEntity<B>(body, requestHeaders);
 
         // Create a new RestTemplate instance
         RestTemplate restTemplate = new RestTemplate();
 
         // Add the Jackson message converter
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+
+        HttpEntity<B> requestEntity;
+        if (body == null) {
+            requestEntity = new HttpEntity<B>(requestHeaders);
+        } else {
+            requestEntity = new HttpEntity<B>(body, requestHeaders);
+        }
 
         return restTemplate.exchange(link.getLink(), link.getMethod(), requestEntity, tClass);
     }

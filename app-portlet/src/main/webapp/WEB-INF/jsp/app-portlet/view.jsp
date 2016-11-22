@@ -20,4 +20,6 @@
 
 This is the <b>app-portlet</b> portlet.<br />
 
+Written by Admin Surname.<br/>
+
 <c:out escapeXml="true" value="${releaseInfo}" />.
