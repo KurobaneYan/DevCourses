@@ -29,6 +29,6 @@ public class CarDaoImpl extends AbstractDao implements CarDao {
         CriteriaQuery<Car> criteriaQuery = criteriaBuilder.createQuery(Car.class);
         Root<Car> from = criteriaQuery.from(Car.class);
         criteriaQuery.select(from);
-        return entityManager.createQuery(criteriaQuery).setFirstResult(page - 1).setMaxResults(pageSize).getResultList();
+        return entityManager.createQuery(criteriaQuery).setFirstResult((page - 1) * pageSize).setMaxResults(pageSize).getResultList();
     }
 }
