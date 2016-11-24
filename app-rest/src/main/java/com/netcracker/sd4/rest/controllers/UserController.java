@@ -21,19 +21,19 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<UserDto> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseStatus(code = HttpStatus.CREATED)
     public UserDto createUser(@RequestBody UserDto userDto) {
         return userService.addUser(userDto);
     }
 
     @RequestMapping(value = "/{surname}/{name}", method = RequestMethod.PUT)
-    public UserDto updateCar(@PathVariable("name") String name, @PathVariable("surname") String surname, @RequestBody UserDto userDto) {
+    public UserDto updateUser(@PathVariable("name") String name, @PathVariable("surname") String surname, @RequestBody UserDto userDto) {
         return userService.updateUser(name, surname, userDto);
     }
 

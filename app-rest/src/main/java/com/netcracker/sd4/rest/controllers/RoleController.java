@@ -20,7 +20,7 @@ public class RoleController {
         this.roleService = roleService;
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value = "/create",method = RequestMethod.POST)
     @ResponseStatus(code = HttpStatus.CREATED)
     public RoleDto CreateRole(@RequestBody RoleDto roleDto) {
         return roleService.addRole(roleDto);
@@ -36,7 +36,7 @@ public class RoleController {
         roleService.deleteRole(name);
     }
 
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<RoleDto> getAllRoles() {
         return roleService.getAllRoles();
     }

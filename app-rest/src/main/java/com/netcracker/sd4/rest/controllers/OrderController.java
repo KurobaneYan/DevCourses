@@ -19,7 +19,7 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/by_user", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<OrderDto> getUserOrders(@RequestBody UserDto userDto) {
         return orderService.getOrders(userDto);
     }

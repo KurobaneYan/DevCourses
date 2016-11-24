@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/cars")
+@RequestMapping("/car")
 public class CarController {
 
     private CarService carService;
@@ -20,7 +20,7 @@ public class CarController {
         this.carService = carService;
     }
 
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<CarDto> getCars() {
         return carService.getAllCars();
     }
@@ -30,7 +30,7 @@ public class CarController {
         return carService.getCarsForPage(page, pageSize);
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseStatus(code = HttpStatus.CREATED)
     public CarDto createCar(@RequestBody CarDto carDto) {
         return carService.addCar(carDto);
