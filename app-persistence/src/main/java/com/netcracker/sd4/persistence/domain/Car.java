@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "car")
 public class Car {
     private int id;
     private int productionYear;

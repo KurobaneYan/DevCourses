@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <artifactId>aggregator</artifactId>
         <groupId>com.netcracker.devcourses</groupId>
@@ -10,12 +9,11 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>app-portlet</artifactId>
     <packaging>war</packaging>
-    <name>app-portlet</name>
-    <!--<properties>-->
-        <!--<liferay.maven.plugin.version>7.0.0-m1</liferay.maven.plugin.version>-->
-        <!--<liferay.version>6.2.4</liferay.version>-->
-        <!--<jackson-version>2.8.4</jackson-version>-->
-    <!--</properties>-->
+    <name>app-portlet Portlet</name>
+    <properties>
+		<liferay.maven.plugin.version>7.0.0-m2</liferay.maven.plugin.version>
+		<liferay.version>6.2.4</liferay.version>
+	</properties>
     <build>
         <plugins>
             <plugin>
@@ -108,73 +106,42 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
-            <version>${springframework-version}</version>
+            <version>3.0.7.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-            <version>${springframework-version}</version>
+            <version>3.0.7.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${springframework-version}</version>
+            <version>3.0.7.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>${springframework-version}</version>
+            <version>3.0.7.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-expression</artifactId>
-            <version>${springframework-version}</version>
+            <version>3.0.7.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>${springframework-version}</version>
+            <version>3.0.7.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>${springframework-version}</version>
+            <version>3.0.7.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc-portlet</artifactId>
-            <version>${springframework-version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>cglib</groupId>
-            <artifactId>cglib</artifactId>
-            <version>3.2.4</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.netcracker.devcourses</groupId>
-            <artifactId>app-client</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>3.0.7.RELEASE</version>
         </dependency>
     </dependencies>
-
-    <profiles>
-        <profile>
-            <id>dev-local</id>
-            <properties>
-                <liferay.version>6.2.4</liferay.version>
-                <liferay.maven.plugin.version>7.0.0-m2</liferay.maven.plugin.version>
-                <springframework-version>3.0.7.RELEASE</springframework-version>
-                <jackson-version>2.8.4</jackson-version>
-                <liferay.auto.deploy.dir>C:/liferay-ce-portal-7.0-ga3/deploy</liferay.auto.deploy.dir>
-                <liferay.app.server.dir>C:/liferay-ce-portal-7.0-ga3/tomcat-7.0.27</liferay.app.server.dir>
-                <liferay.app.server.deploy.dir>C:/liferay-ce-portal-7.0-ga3/tomcat-7.0.27/webapps</liferay.app.server.deploy.dir>
-                <liferay.app.server.lib.global.dir>C:/liferay-ce-portal-7.0-ga3/tomcat-7.0.27/lib/ext</liferay.app.server.lib.global.dir>
-                <liferay.app.server.portal.dir>C:/liferay-ce-portal-7.0-ga3/tomcat-7.0.27/webapps/ROOT</liferay.app.server.portal.dir>
-
-            </properties>
-        </profile>
-    </profiles>
-
 </project>
