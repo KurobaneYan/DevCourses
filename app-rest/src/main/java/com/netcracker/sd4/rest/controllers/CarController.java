@@ -20,6 +20,7 @@ public class CarController {
         this.carService = carService;
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<CarDto> getCars() {
         return carService.getAllCars();
