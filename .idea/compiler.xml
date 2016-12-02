@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+      <entry name="!?*.aj" />
+    </wildcardResourcePatterns>
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="true" />
-      <profile name="Maven default annotation processors profile" enabled="true">
+      <profile default="true" name="Default" enabled="true">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
         <module name="app-client" />
         <module name="app-persistence" />
         <module name="app-portlet" />
@@ -17,8 +32,8 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="app-client" target="1.5" />
-      <module name="app-persistence" target="1.8" />
-      <module name="app-portlet" target="1.6" />
+      <module name="app-persistence" target="1.5" />
+      <module name="app-portlet" target="1.8" />
       <module name="app-portlet-spring" target="1.6" />
       <module name="app-rest" target="1.8" />
       <module name="consuming-rest" target="1.5" />

@@ -13,8 +13,8 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.3.3.RELEASE" />
           <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.2" />
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.3.3.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-web:4.3.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.3.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:4.3.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc-portlet:4.3.3.RELEASE" />
           <element id="archive" name="app-client-1.0-SNAPSHOT.jar">
             <element id="module-output" name="app-client" />
