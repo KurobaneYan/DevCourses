@@ -1,4 +1,4 @@
-package com.netcracker.sd4.rest.configuratin;
+package com.netcracker.sd4.rest.configuration;
 
 import com.netcracker.sd4.persistence.configuration.PersistenceConfiguration;
 import com.netcracker.sd4.rest.converters.*;

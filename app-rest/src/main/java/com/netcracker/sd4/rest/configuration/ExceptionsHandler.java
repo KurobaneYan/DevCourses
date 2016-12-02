@@ -1,4 +1,4 @@
-package com.netcracker.sd4.rest.configuratin;
+package com.netcracker.sd4.rest.configuration;
 
 import com.netcracker.sd4.rest.dto.ErrorResponse;
 import com.netcracker.sd4.rest.exceptions.ResourceNotFoundException;
