@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/app-persistence/app-persistence.iml" filepath="$PROJECT_DIR$/app-persistence/app-persistence.iml" />
       <module fileurl="file://$PROJECT_DIR$/app-portlet/app-portlet.iml" filepath="$PROJECT_DIR$/app-portlet/app-portlet.iml" />
       <module fileurl="file://$PROJECT_DIR$/app-rest/app-rest.iml" filepath="$PROJECT_DIR$/app-rest/app-rest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/weather-portlet/weather-portlet.iml" filepath="$PROJECT_DIR$/weather-portlet/weather-portlet.iml" />
     </modules>
   </component>
 </project>

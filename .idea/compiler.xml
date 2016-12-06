@@ -28,6 +28,8 @@
         <module name="app-portlet-spring" />
         <module name="app-rest" />
         <module name="shopMain" />
+        <module name="weather portlet" />
+        <module name="weather-portlet" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -39,6 +41,8 @@
       <module name="consuming-rest" target="1.5" />
       <module name="DevCourses" target="1.5" />
       <module name="shopMain" target="1.6" />
+      <module name="weather portlet" target="1.8" />
+      <module name="weather-portlet" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

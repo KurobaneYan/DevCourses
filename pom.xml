@@ -13,6 +13,7 @@
         <module>app-rest</module>
         <module>app-client</module>
         <module>app-portlet</module>
+        <module>weather-portlet</module>
     </modules>
 
     <properties>

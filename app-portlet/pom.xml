@@ -9,7 +9,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>app-portlet</artifactId>
     <packaging>war</packaging>
-    <name>app-portlet Portlet</name>
+    <name>app-portlet</name>
 
     <properties>
 		<liferay.maven.plugin.version>7.0.0-m2</liferay.maven.plugin.version>
