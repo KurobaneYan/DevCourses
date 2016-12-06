@@ -5,7 +5,10 @@ import org.springframework.http.HttpMethod;
 public enum Link {
     GET_WEATHER ("weather", HttpMethod.GET),
     GET_ORDERS("order/by_user", HttpMethod.POST),
-    GET_CARS("car/all", HttpMethod.GET);
+    GET_CARS("car/all", HttpMethod.GET),
+    UPDATE_CAR("car/", HttpMethod.PUT),
+    CREATE_CAR("car/create", HttpMethod.POST),
+    DELETE_CAR("car/", HttpMethod.DELETE);
 
     private final String url;
     private final HttpMethod method;
@@ -24,7 +27,7 @@ public enum Link {
     public static final String host = "http://localhost";
     public static final int port = 8000;
 
-    String getLink() {
+    public String getLink() {
         return host + ":" + port + "/" + url + "/";
     }
 }

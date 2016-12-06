@@ -1,31 +1,9 @@
 package com.netcracker.sd4.client;
 
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.web.client.RestTemplate;
 
-import java.util.Collections;
-
-public class Client {
-    public <T, B> ResponseEntity<T> process(Link link, Class<T> tClass, B body) {
-        HttpHeaders requestHeaders = new HttpHeaders();
-        requestHeaders.setAccept(Collections.singletonList(new MediaType("application","json")));
-        requestHeaders.setContentType(MediaType.APPLICATION_JSON);
-
-        RestTemplate restTemplate = new RestTemplate();
-
-        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-
-        HttpEntity<B> requestEntity;
-        if (body == null) {
-            requestEntity = new HttpEntity<B>(requestHeaders);
-        } else {
-            requestEntity = new HttpEntity<B>(body, requestHeaders);
-        }
-
-        return restTemplate.exchange(link.getLink(), link.getMethod(), requestEntity, tClass);
-    }
+public interface Client {
+    <T, B> ResponseEntity<T> process(Link link, Class<T> tClass, B body);
+    <T, B> ResponseEntity<T> processURL(String url, HttpMethod method, Class<T> tClass, B body);
 }
