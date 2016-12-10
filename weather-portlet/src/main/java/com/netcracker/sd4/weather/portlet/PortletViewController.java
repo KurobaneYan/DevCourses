@@ -8,6 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.portlet.bind.annotation.RenderMapping;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 @Controller
 @RequestMapping("VIEW")
 public class PortletViewController {
@@ -15,14 +18,18 @@ public class PortletViewController {
 
 	@RenderMapping
 	public String render(Model model) {
-        ResponseEntity<String> weather = weatherClient.getWeather(String.class);
+        ResponseEntity<Map> weather = weatherClient.getWeather(Map.class);
 
-        if (weather != null) {
-            model.addAttribute("weather", weather.getBody());
-        } else {
-            model.addAttribute("weather", "Could not retrieve weather data");
+        if (weather == null) {
+            model.addAttribute("errorMessage", "Could not retrieve data");
+            return "weather portlet/error";
         }
-		return "weather portlet/view";
+
+        String description = (String) ((Map)((ArrayList)weather.getBody().get("weather")).get(0)).get("description");
+        Integer temp = (Integer) ((Map)weather.getBody().get("main")).get("temp");
+        model.addAttribute("description",description);
+        model.addAttribute("temp", temp);
+        return "weather portlet/view";
 	}
 
 	@Autowired
