@@ -16,6 +16,7 @@ import org.springframework.web.portlet.bind.annotation.ResourceMapping;
 
 import javax.portlet.ResourceResponse;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("VIEW")
@@ -27,7 +28,7 @@ public class PortletViewController {
 
 	@RenderMapping
 	public String render(Model model) {
-		ResponseEntity<String> cars = client.getCarsPagination(1, 2, String.class);
+		ResponseEntity<List> cars = client.getCarsPagination(1, 20, List.class);
 
         if (cars == null) {
         	model.addAttribute("errorMessage", "Could not connect to rest server");

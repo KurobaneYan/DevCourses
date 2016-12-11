@@ -8,6 +8,7 @@ public class CarDtoToCarConverter implements Converter<CarDto, Car> {
     @Override
     public Car convert(CarDto carDto) {
         Car car = new Car();
+        car.setId(carDto.getId());
         car.setModel(carDto.getModel());
         car.setManufacturer(carDto.getManufacturer());
         car.setBodyStyle(carDto.getBodyStyle());

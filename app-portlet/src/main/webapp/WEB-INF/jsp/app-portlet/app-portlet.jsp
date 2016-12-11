@@ -18,14 +18,6 @@
                 pageNumber: pageNumber
             },
             success: function (data) {
-                $("#cars-thead").empty().append($("<tr>").append(
-                    $("<th>").text("manufacturer"),
-                    $("<th>").text("model"),
-                    $("<th>").text("year"),
-                    $("<th>").text("price"),
-                    $("<th>").text("style"),
-                    $("<th>").text("left")
-                ));
                 $("#cars-tbody").empty();
                 $.each(data, function (i, car) {
                     $("<tr>").append(
@@ -42,7 +34,7 @@
     };
 </script>
 
-<p><c:out value="${cars}"/></p>
+<%--<p><c:out value="${cars}"/></p>--%>
 
 <form>
     <input id="pageNumber" type="text" name="pageNumber" value="1"/>
@@ -52,7 +44,25 @@
 
 <table id="cars-table" class="table">
     <thead id="cars-thead">
+        <tr>
+            <th>Manufacturer</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Price</th>
+            <th>Style</th>
+            <th>Amount left</th>
+        </tr>
     </thead>
     <tbody id="cars-tbody">
+        <c:forEach var="car" items="${cars}">
+                <tr>
+                    <td><c:out value="${car.manufacturer}" /></td>
+                    <td><c:out value="${car.model}" /></td>
+                    <td><c:out value="${car.productionYear}" /></td>
+                    <td><c:out value="${car.price}" /></td>
+                    <td><c:out value="${car.bodyStyle}" />></td>
+                    <td><c:out value="${car.amountLeft}" /></td>
+                </tr>
+        </c:forEach>
     </tbody>
 </table>

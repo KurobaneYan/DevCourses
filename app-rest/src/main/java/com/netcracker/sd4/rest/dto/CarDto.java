@@ -1,6 +1,7 @@
 package com.netcracker.sd4.rest.dto;
 
 public class CarDto {
+    private int id;
     private int productionYear;
     private int price;
     private int amountLeft;
@@ -54,5 +55,13 @@ public class CarDto {
 
     public void setBodyStyle(String bodyStyle) {
         this.bodyStyle = bodyStyle;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
