@@ -35,7 +35,7 @@ public class PortletViewController {
 		}
 
 		model.addAttribute("cars", cars.getBody());
-		return "app-portlet/view";
+		return "app-portlet/app-portlet";
 	}
 
 	@ResourceMapping(value = "getCarPagination")

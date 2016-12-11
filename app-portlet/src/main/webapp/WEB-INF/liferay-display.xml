@@ -4,5 +4,6 @@
 <display>
 	<category name="Netcracker">
 		<portlet id="app-portlet" />
+		<portlet id="weather-portlet"/>
 	</category>
 </display>

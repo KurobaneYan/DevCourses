@@ -29,7 +29,6 @@
         <module name="app-rest" />
         <module name="shopMain" />
         <module name="weather portlet" />
-        <module name="weather-portlet" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
