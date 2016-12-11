@@ -22,7 +22,7 @@ public class WeatherController {
         String appid = "8c4f6b13bec022d5469715859e68bbc3";
         Map<String, Object> result = (Map<String, Object>) restTemplate
                 .getForObject("http://api.openweathermap.org/data/2.5/weather?q=" +
-                        city + "&appid=" + appid + "&units=metric&lang=ru", Map.class);
+                        city + "&appid=" + appid + "&units=metric&lang=en", Map.class);
         return result;
     }
 
