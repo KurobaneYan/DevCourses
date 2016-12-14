@@ -1,14 +1,17 @@
-<%@ include file="init.jsp" %>
+<%@taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme"%>
+<%@taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet"%>
+<%@taglib uri="http://liferay.com/tld/aui" prefix="aui"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<%@ page contentType="text/html" pageEncoding="UTF-8" %>
+<portlet:defineObjects />
+<liferay-theme:defineObjects />
 
-<portlet:resourceURL id="getCarPagination" var="getCarPagination"/>
+<portlet:resourceURL id="getCarPagination" var="getCarPagination" />
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
-    function ajaxCall() {
-        var pageSize = $("#pageSize").val();
-        var pageNumber = $("#pageNumber").val();
+    function getCars(pageNumber) {
+        var pageSize = 10;
         $.ajax({
             url: "<%= getCarPagination %>",
             type: "GET",
@@ -31,16 +34,13 @@
                 });
             }
         });
-    };
+    }
+
+    Liferay.on("eventName", function (event) {
+        alert("Got'em");
+        alert(event);
+    });
 </script>
-
-<%--<p><c:out value="${cars}"/></p>--%>
-
-<form>
-    <input id="pageNumber" type="text" name="pageNumber" value="1"/>
-    <input id="pageSize" type="text" name="pageSize" value="3"/>
-    <input type="button" value="getPagination" onclick="ajaxCall()"/>
-</form>
 
 <table id="cars-table" class="table">
     <thead id="cars-thead">
@@ -60,9 +60,15 @@
                     <td><c:out value="${car.model}" /></td>
                     <td><c:out value="${car.productionYear}" /></td>
                     <td><c:out value="${car.price}" /></td>
-                    <td><c:out value="${car.bodyStyle}" />></td>
+                    <td><c:out value="${car.bodyStyle}" /></td>
                     <td><c:out value="${car.amountLeft}" /></td>
                 </tr>
         </c:forEach>
     </tbody>
 </table>
+
+<form>
+    <c:forEach var="i" begin="1" end="${count}">
+        <div class="btn btn-default" value="${i}" onclick="getCars(${i})">${i}</div>
+    </c:forEach>
+</form>

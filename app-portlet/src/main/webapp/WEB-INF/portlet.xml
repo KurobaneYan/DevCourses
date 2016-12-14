@@ -61,4 +61,34 @@
 			<role-name>user</role-name>
 		</security-role-ref>
 	</portlet>
+	<portlet>
+		<portlet-name>search-portlet</portlet-name>
+		<display-name>search-portlet</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<init-param>
+			<name>contextConfigLocation</name>
+			<value>/WEB-INF/spring-context/portlet/search-portlet.xml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>search-portlet</title>
+			<short-title>search-portlet</short-title>
+			<keywords>search-portlet</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
 </portlet-app>

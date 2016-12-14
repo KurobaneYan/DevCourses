@@ -23,41 +23,38 @@ import java.util.List;
 public class PortletViewController {
 
 	private static final Logger logger = Logger.getLogger(PortletViewController.class);
+    private final int pageSize = 10;
 
 	private CarClient client;
 
 	@RenderMapping
 	public String render(Model model) {
-		ResponseEntity<List> cars = client.getCarsPagination(1, 20, List.class);
+		ResponseEntity<Long> carsCountResponseEntity = client.getCarsCount();
+		ResponseEntity<List> carsResponseEntity = client.getDefaultCarsPagination(1, List.class);
 
-        if (cars == null) {
+        if ((carsResponseEntity == null) || (carsCountResponseEntity == null)) {
         	model.addAttribute("errorMessage", "Could not connect to rest server");
         	return "app-portlet/error";
 		}
 
-		model.addAttribute("cars", cars.getBody());
+		long pagesCount = carsCountResponseEntity.getBody() / pageSize + 1;
+		model.addAttribute("count", pagesCount);
+		model.addAttribute("cars", carsResponseEntity.getBody());
 		return "app-portlet/app-portlet";
 	}
 
 	@ResourceMapping(value = "getCarPagination")
 	public void getCarPagination(ResourceResponse resourceResponse, @RequestParam("pageSize") int pageSize, @RequestParam("pageNumber") int pageNumber) {
-		logger.info("pageSize: " + String.valueOf(pageSize));
-		logger.info("pageNumber: " + String.valueOf(pageNumber));
-
 		ResponseEntity<String> cars = client.getCarsPagination(pageNumber, pageSize, String.class);
 
-		String result = "Error";
-
 		if (cars != null) {
-			result = cars.getBody();
-		}
-
-		try {
-			JSONArray jsonObject = JSONFactoryUtil.createJSONArray(result);
-			resourceResponse.setContentType("text/json");
-			resourceResponse.getWriter().write(jsonObject.toString());
-		} catch (IOException | JSONException e) {
-			logger.info(e.getMessage());
+		    try {
+			    JSONArray jsonArray = JSONFactoryUtil.createJSONArray(cars.getBody());
+			    resourceResponse.setContentType("text/json");
+			    resourceResponse.getWriter().write(jsonArray.toString());
+		    } catch (IOException | JSONException e) {
+                logger.info(e.getMessage());
+            }
 		}
 	}
 

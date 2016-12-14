@@ -5,5 +5,6 @@
 	<category name="Netcracker">
 		<portlet id="app-portlet" />
 		<portlet id="weather-portlet"/>
+		<portlet id="search-portlet" />
 	</category>
 </display>

@@ -45,4 +45,15 @@ public class CarController {
     public void deleteCar(@PathVariable String carModel) {
         carService.deleteCar(carModel);
     }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    public long countCars() {
+        return carService.countCars();
+    }
+
+    @RequestMapping(value = "/search/{keyword}/{page}/{pageSize}", method = RequestMethod.GET)
+    public List<CarDto> searchCarWithPagination(@PathVariable("keyword") String keyword, @PathVariable("page") int page,
+                                                @PathVariable("pageSize") int pageSize) {
+        return carService.searchCarWithPagination(keyword, page, pageSize);
+    }
 }

@@ -6,9 +6,8 @@ public enum Link {
     GET_WEATHER ("weather", HttpMethod.GET),
     GET_ORDERS("order/by_user", HttpMethod.POST),
     GET_CARS("car/all", HttpMethod.GET),
-    UPDATE_CAR("car/", HttpMethod.PUT),
-    CREATE_CAR("car/create", HttpMethod.POST),
-    DELETE_CAR("car/", HttpMethod.DELETE);
+    SEARCH_CARS("car/search", HttpMethod.GET),
+    GET_CARS_COUNT("car/count", HttpMethod.GET);
 
     private final String url;
     private final HttpMethod method;

@@ -18,6 +18,7 @@
           <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/spring-context/portlet/app-portlet.xml</file>
           <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/spring-context/portlet-application-context.xml</file>
           <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/spring-context/portlet/weather-portlet.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/spring-context/portlet/search-portlet.xml</file>
         </fileset>
       </configuration>
     </facet>

@@ -10,4 +10,6 @@ public interface CarService {
     CarDto addCar(CarDto carDto);
     CarDto updateCar(String model, CarDto carDto);
     void deleteCar(String model);
+    long countCars();
+    List<CarDto> searchCarWithPagination(String keyword, int page, int pageSize);
 }

@@ -16,13 +16,21 @@ public abstract class AbstractDao implements GenericDao {
     protected EntityManager entityManager;
 
     @Override
-    public <T> List<T> getAll(Class<T> clazz) {
+    public <T> List<T> getAll(Class<T> tClass) {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(clazz);
-        Root<? extends T> from = criteriaQuery.from(clazz);
+        CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(tClass);
+        Root<? extends T> from = criteriaQuery.from(tClass);
         criteriaQuery.select(from);
         TypedQuery<T> query = entityManager.createQuery(criteriaQuery);
         return query.getResultList();
+    }
+
+    @Override
+    public <T> Number count(Class<T> tClass) {
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Number> criteriaQuery = criteriaBuilder.createQuery(Number.class);
+        criteriaQuery.select(criteriaBuilder.count(criteriaQuery.from(tClass)));
+        return entityManager.createQuery(criteriaQuery).getSingleResult();
     }
 
     @Override
